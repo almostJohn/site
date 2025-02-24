@@ -1,10 +1,17 @@
 import * as React from "react";
+import {
+	SiGithub as GitHub,
+	SiX as X,
+	SiInstagram as Instagram,
+	SiDiscord as Discord,
+	SiFacebook as Facebook,
+} from "@icons-pack/react-simple-icons";
 import { ExternalLink, MapPin } from "lucide-react";
 import { siteConfig } from "@/util/site";
 
 export default function IndexPage() {
 	return (
-		<div className="container flex flex-col space-y-6 py-8">
+		<div className="container flex flex-col space-y-6 pt-8 pb-10 md:pb-16 lg:pb-20">
 			<div className="flex flex-col space-y-3">
 				<h1 className="text-2xl">jhan gale garcia</h1>
 				<div className="flex items-center space-x-2">
@@ -61,50 +68,46 @@ export default function IndexPage() {
 				<h1 className="text-2xl font-bold mb-4">
 					<span className="text-teal-500">*</span> links
 				</h1>
-				<div className="flex gap-1.5 items-center text-xs/relaxed text-teal-500">
+				<div className="flex items-center gap-4 flex-wrap text-sm tracking-tighter">
 					<a
 						href={siteConfig.social.github}
-						className="underline underline-offset-4"
 						rel="noreferrer"
 						target="_blank"
+						className="flex items-center underline underline-offset-4"
 					>
-						github
+						<GitHub className="size-4 mr-2" /> almostJohn
 					</a>
-					/
 					<a
 						href={siteConfig.social.twitter}
-						className="underline underline-offset-4"
 						rel="noreferrer"
 						target="_blank"
+						className="flex items-center underline underline-offset-4"
 					>
-						x.com
+						<X className="size-4 mr-2" /> almostJohn1
 					</a>
-					/
 					<a
 						href={siteConfig.social.discord}
-						className="underline underline-offset-4"
 						rel="noreferrer"
 						target="_blank"
+						className="flex items-center underline underline-offset-4"
 					>
-						discord
+						<Discord className="size-4 mr-2" /> almostjohn
 					</a>
-					/
 					<a
 						href={siteConfig.social.instagram}
-						className="underline underline-offset-4"
 						rel="noreferrer"
 						target="_blank"
+						className="flex items-center underline underline-offset-4"
 					>
-						instagram
+						<Instagram className="size-4 mr-2" /> almostjohn1
 					</a>
-					/
 					<a
 						href={siteConfig.social.facebook}
-						className="underline underline-offset-4"
 						rel="noreferrer"
 						target="_blank"
+						className="flex items-center underline underline-offset-4"
 					>
-						fb.com
+						<Facebook className="size-4 mr-2" /> alsojohn01
 					</a>
 				</div>
 			</div>

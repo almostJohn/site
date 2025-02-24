@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { fontMono } from "@/util/fonts";
-import "@/styles/globals.css";
 import { SiteHeader } from "@/components/site-header";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
 	title: {
