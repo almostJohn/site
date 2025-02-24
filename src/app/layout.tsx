@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { fontMono } from "@/util/fonts";
 import "@/styles/globals.css";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
 	title: {
@@ -39,9 +40,12 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${fontMono.className} bg-white text-gray-900 antialiased`}
+				className={`${fontMono.className} bg-neutral-950 text-neutral-50 antialiased selection:bg-teal-500/30 selection:text-teal-500`}
 			>
-				{children}
+				<main className="mx-auto max-w-2xl">
+					<SiteHeader />
+					{children}
+				</main>
 			</body>
 		</html>
 	);
