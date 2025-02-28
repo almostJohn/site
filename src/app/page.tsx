@@ -35,31 +35,37 @@ export default function IndexPage() {
 				{siteConfig.projects.map((item, i) => (
 					<div
 						key={i}
-						className="block p-4 border border-neutral-800 bg-transparent rounded-md cursor-pointer transition-colors hover:border-teal-500"
+						className="p-4 border border-neutral-800 bg-transparent rounded-md cursor-pointer transition-colors hover:border-teal-500"
 					>
-						<div className="flex flex-col space-y-3">
-							<div className="flex flex-col space-y-1">
-								<h3 className="font-medium underline underline-offset-4">
+						<div className="flex flex-col space-y-4">
+							<div className="flex flex-col space-y-0.5">
+								<span className="font-medium text-sm underline underline-offset-4">
 									{item.title}
-								</h3>
-								<p className="text-sm text-neutral-500">{item.description}</p>
-							</div>
-							<div className="flex items-center justify-end gap-2">
-								<a
-									href={item.live}
-									className="group inline-flex items-center justify-center px-3 py-1 gap-2 rounded-md text-sm font-medium border border-neutral-800 bg-transparent transition-colors hover:bg-neutral-800"
-								>
-									<span>live</span>
+								</span>
+								<div className="group flex gap-2 w-1/2 items-center text-neutral-500">
+									<a
+										href={item.live.link}
+										rel="noreferrer"
+										target="_blank"
+										className="text-sm group-hover:underline"
+									>
+										{item.live.label}
+									</a>
 									<ExternalLink className="hidden size-4 shrink-0 group-hover:flex" />
-								</a>
+								</div>
+							</div>
+							<div className="flex items-center justify-start">
 								<a
 									href={item.repository}
-									className="group inline-flex items-center justify-center px-3 py-1 gap-2 rounded-md text-sm font-medium border border-neutral-800 bg-transparent transition-colors hover:bg-neutral-800"
+									rel="noreferrer"
+									target="_blank"
+									className="group inline-flex items-center justify-center px-3 py-1 gap-2 rounded-full bg-neutral-800 text-xs font-medium"
 								>
-									<span>repository</span>
-									<ExternalLink className="hidden size-4 shrink-0 group-hover:flex" />
+									<GitHub className="size-4 shrink-0" />
+									<span>almostJohn/{item.title}</span>
 								</a>
 							</div>
+							<p className="text-sm text-neutral-500">{item.description}</p>
 						</div>
 					</div>
 				))}
