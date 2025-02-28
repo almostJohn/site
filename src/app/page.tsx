@@ -38,7 +38,7 @@ export default function IndexPage() {
 						className="p-4 border border-neutral-800 bg-transparent rounded-md cursor-pointer transition-colors hover:border-teal-500"
 					>
 						<div className="flex flex-col space-y-4">
-							<div className="flex flex-col space-y-0.5">
+							<div className="flex flex-col space-y-1">
 								<span className="font-medium text-sm underline underline-offset-4">
 									{item.title}
 								</span>
@@ -47,7 +47,7 @@ export default function IndexPage() {
 										href={item.live.link}
 										rel="noreferrer"
 										target="_blank"
-										className="text-sm group-hover:underline"
+										className="text-xs truncate group-hover:underline"
 									>
 										{item.live.label}
 									</a>
