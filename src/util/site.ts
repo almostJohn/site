@@ -2,38 +2,21 @@ export const siteConfig = {
 	social: {
 		github: "https://github.com/almostJohn",
 		twitter: "https://x.com/almostJohn1",
-		instagram: "https://instagram.com/almostjohn1",
-		facebook: "https://facebook.com/alsojohn01",
+		linkedin: "https://www.linkedin.com/in/almostjohn/",
 		discord: "https://discord.com/users/996354867708841984",
 	},
 	projects: [
 		{
-			title: "djs-framework",
-			repository: "https://github.com/almostJohn/djs-framework",
-			live: {
-				label: "djs-fwk.vercel.app",
-				link: "https://djs-fwk.vercel.app",
-			},
-			description: "A framework for building discord bot the fastest way.",
+			title: "next-djs-framework",
+			href: "https://github.com/almostJohn/next-djs-framework",
 		},
 		{
-			title: "tsconfig",
-			repository: "https://github.com/almostJohn/tsconfig",
-			live: {
-				label: "tscfg.vercel.app",
-				link: "https://tscfg.vercel.app",
-			},
-			description:
-				"A typescript configuration that you can copy and paste into your projects.",
+			title: "next-tsconfig",
+			href: "https://github.com/almostJohn/next-tsconfig",
 		},
 		{
-			title: "simplynote",
-			repository: "https://github.com/almostJohn/simplynote",
-			live: {
-				label: "simplynote.vercel.app",
-				link: "https://simplynote.vercel.app",
-			},
-			description: "Take notes with ease.",
+			title: "next-simplynote",
+			href: "https://github.com/almostJohn/next-simplynote",
 		},
 	],
 };
