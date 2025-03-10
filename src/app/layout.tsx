@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { fontMono } from "@/util/fonts";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 	icons: {
 		other: [
 			{
-				url: "/favicon-16x16.png",
+				url: "/favicon.png",
 				sizes: "16x16",
 				type: "image/png",
 			},
@@ -34,18 +34,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+}: {
+	readonly children: React.ReactNode;
+}) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${fontMono.className} bg-neutral-950 text-neutral-50 antialiased selection:bg-teal-500/30 selection:text-teal-500 flex flex-col min-h-screen`}
+				className={`${fontMono.className} bg-neutral-900 text-neutral-50 antialiased selection:bg-teal-500/30 selection:text-teal-500 flex flex-col min-h-screen`}
 			>
 				<div className="flex-1">
-					<div className="mx-auto max-w-2xl">{children}</div>
+					<div className="container max-w-4xl">
+						<SiteHeader />
+						{children}
+					</div>
 				</div>
-				<SiteFooter />
 			</body>
 		</html>
 	);

@@ -41,13 +41,13 @@ export default function GlobalError({ error }: { readonly error: Error }) {
 			<body
 				className={`${fontMono.className} bg-white text-gray-900 antialiased`}
 			>
-				<div className="min-h-screen flex justify-center items-center">
+				<div className="h-screen flex justify-center items-center">
 					<div className="flex flex-col space-y-6">
-						<div className="flex flex-col space-y-4 space-x-0 items-center justify-center md:flex-row md:space-y-0 md:space-x-6">
-							<h1 className="text-5xl font-black leading-none md:text-7xl">
+						<div className="flex flex-col space-y-4">
+							<h1 className="text-6xl font-black leading-none md:text-8xl">
 								500
 							</h1>
-							<p className="text-xl">Error</p>
+							<p className="text-xl">error</p>
 						</div>
 					</div>
 				</div>
