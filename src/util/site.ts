@@ -65,7 +65,7 @@ export const siteConfig = {
 					label: "next.js",
 				},
 				{
-					label: "web storage api",
+					label: "web-storage-api",
 				},
 				{
 					label: "tailwindcss",

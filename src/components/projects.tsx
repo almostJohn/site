@@ -13,9 +13,15 @@ export function Projects({ limit }: { limit?: number }) {
 			</h1>
 			<div className="flex flex-col space-y-6">
 				{limitedProjects.map((item) => (
-					<a key={item.href} href={item.href} className="group block">
-						<div className="flex flex-col space-y-1">
-							<div className="flex flex-col 0.5">
+					<a
+						key={item.href}
+						href={item.href}
+						rel="noreferrer"
+						target="_blank"
+						className="group block"
+					>
+						<div className="flex flex-col space-y-3">
+							<div className="flex flex-col space-y-1">
 								<h3 className="text-xl font-semibold transition duration-300 group-hover:text-teal-500">
 									{item.title}
 								</h3>
@@ -23,7 +29,7 @@ export function Projects({ limit }: { limit?: number }) {
 									creator and maintainer
 								</span>
 							</div>
-							<p className="text-sm text-neutral-300">{item.description}</p>
+							<p className="text-neutral-300">{item.description}</p>
 						</div>
 					</a>
 				))}
