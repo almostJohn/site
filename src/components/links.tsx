@@ -7,7 +7,7 @@ export function Links() {
 			<h1 className="text-2xl font-bold mb-6">
 				<span className="text-teal-500">*</span> links
 			</h1>
-			<div className="flex items-center space-x-4 text-sm">
+			<div className="flex items-center gap-3 text-sm">
 				<a
 					href={siteConfig.social.email}
 					rel="noreferrer"

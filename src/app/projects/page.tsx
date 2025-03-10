@@ -40,7 +40,7 @@ export default function Page() {
 							<p className="text-neutral-300">{item.description}</p>
 							<div className="pt-4 flex flex-col space-y-2">
 								<h3 className="font-bold">technologies</h3>
-								<div className="flex items-center gap-2">
+								<div className="flex flex-wrap items-center gap-2">
 									{item.technologies.map((tech) => (
 										<div
 											key={tech.label}
