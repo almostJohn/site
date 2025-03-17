@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { fontMono } from "@/util/fonts";
-import { SiteHeader } from "@/components/site-header";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -11,9 +10,9 @@ export const metadata: Metadata = {
 	icons: {
 		other: [
 			{
-				url: "/favicon.png",
-				sizes: "16x16",
-				type: "image/png",
+				url: "/favicon.svg",
+				sizes: "32x32",
+				type: "image/svg",
 			},
 		],
 	},
@@ -40,14 +39,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${fontMono.className} bg-neutral-900 text-neutral-50 antialiased selection:bg-teal-500/30 selection:text-teal-500 flex flex-col min-h-screen`}
+				className={`${fontMono.className} bg-neutral-50 text-neutral-950 antialiased selection:bg-teal-500/30 selection:text-teal-500 text-sm min-h-screen flex flex-col justify-center items-center`}
 			>
-				<div className="flex-1">
-					<div className="container max-w-4xl">
-						<SiteHeader />
-						{children}
-					</div>
-				</div>
+				<div className="container max-w-2xl">{children}</div>
 			</body>
 		</html>
 	);
