@@ -1,13 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { loginAdmin } from "@/app/(auth)/login/actions";
 import { Loader2 as LoadingIcon } from "lucide-react";
 
 export function Login() {
 	const router = useRouter();
-	const searchParams = useSearchParams();
 	const [isLoading, setIsLoading] = React.useState(false);
 	const [error, setError] = React.useState<string | null>(null);
 
@@ -19,8 +18,7 @@ export function Login() {
 
 		try {
 			if (success) {
-				const from = searchParams.get("from") || "/admin/messages";
-				router.push(from);
+				router.push("/admin");
 				router.refresh();
 			} else {
 				setError("Failed to login. Please try again");
