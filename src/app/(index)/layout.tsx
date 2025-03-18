@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function AuthLayout({
+export default function IndexLayout({
 	children,
 }: {
 	readonly children: React.ReactNode;

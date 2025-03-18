@@ -80,7 +80,7 @@ export function Setup() {
 	if (isLoading || adminExists === null) {
 		return (
 			<div className="w-full flex items-center justify-center gap-2 p-8">
-				<LoadingIcon className="size-8 animate-spin" />
+				<LoadingIcon className="size-6 animate-spin" />
 				<p className="font-medium">Checking system status...</p>
 			</div>
 		);
@@ -102,7 +102,7 @@ export function Setup() {
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						placeholder="Username"
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-500 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						required
 					/>
 					<input
@@ -111,7 +111,7 @@ export function Setup() {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						placeholder="Password"
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-500 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						required
 					/>
 				</div>
@@ -128,11 +128,10 @@ export function Setup() {
 						id="confirm-password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-500 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						required
 					/>
 				</div>
-				{error && <p className="font-medium text-red-600">{error}</p>}
 				<button
 					type="submit"
 					className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
@@ -147,6 +146,11 @@ export function Setup() {
 						<>Create account</>
 					)}
 				</button>
+				{error && (
+					<div className="inline-flex items-center px-3 py-1 text-xs font-bold bg-neutral-200 border-l-2 border-red-600">
+						{error}
+					</div>
+				)}
 			</form>
 		</>
 	);

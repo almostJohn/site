@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fontMono } from "@/util/fonts";
+import { geistMono } from "@/util/fonts";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -39,9 +39,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${fontMono.className} bg-neutral-50 text-neutral-950 antialiased selection:bg-teal-500/30 selection:text-teal-500 text-sm min-h-screen flex flex-col justify-center items-center`}
+				className={`${geistMono.className} bg-neutral-50 text-neutral-950 antialiased selection:bg-teal-500/30 selection:text-teal-500`}
 			>
-				<div className="container max-w-2xl">{children}</div>
+				<main className="min-h-screen text-sm">{children}</main>
 			</body>
 		</html>
 	);

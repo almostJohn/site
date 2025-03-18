@@ -6,9 +6,9 @@ export const metadata: Metadata = {
 	title: "Admin login",
 };
 
-export default function LoginPage() {
+export default function Page() {
 	return (
-		<div className="pt-8 px-4 pb-12 md:px-8 md:pb-24 lg:pb-32">
+		<div className="min-h-screen flex flex-col items-center justify-center gap-8 p-6">
 			<Login />
 		</div>
 	);

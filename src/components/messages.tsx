@@ -3,7 +3,7 @@
 import * as React from "react";
 import { format } from "date-fns";
 import type { Message } from "@prisma/client";
-import { deleteMessage, markAsRead } from "@/app/actions";
+import { deleteMessage, markAsRead } from "@/app/(index)/send-message/actions";
 import { Trash } from "lucide-react";
 
 export function Messages({ messages }: { messages: Message[] }) {
@@ -49,54 +49,60 @@ export function Messages({ messages }: { messages: Message[] }) {
 	}
 
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-6">
 			{messages.map((message) => (
 				<div
 					key={message.id}
-					className={`block bg-white p-4 w-full group cursor-pointer ${
-						message.read ? "" : "border-l-2 border-blue-600"
-					}`}
+					className={`block relative p-3 cursor-pointer ${
+						message.read
+							? "bg-neutral-200/50"
+							: "border-l-2 border-blue-600 bg-neutral-200/10"
+					} w-[20rem]`}
 				>
-					<div className="flex flex-col space-y-4">
-						<div className="flex items-center justify-between">
-							<div className="flex flex-col space-y-0.5">
-								<h1 className="font-medium text-left">{message.displayName}</h1>
+					{!message.read && (
+						<div className="absolute -top-3 right-3 inline-flex items-center justify-center px-3 py-0.5 text-xs font-medium bg-blue-600 text-white">
+							new
+						</div>
+					)}
+					<div className="flex flex-col space-y-3.5">
+						<div className="flex items-center justify-between w-full">
+							<div className="flex items-center gap-2">
+								<h1 className="font-medium text-left underline underline-offset-4 text-blue-600">
+									{message.displayName}
+								</h1>
 								<span className="text-xs text-left text-neutral-500">
 									{format(new Date(message.createdAt), "PPp")}
 								</span>
 							</div>
-							<div className="flex items-center gap-2">
+							<div className="flex items-center justify-end">
 								<button
-									className="inline-flex opacity-0 items-center justify-center px-2 py-0.5 size-5 transition-colors hover:bg-neutral-300 group-hover:opacity-100"
-									onClick={() => message.id && handleDelete(message.id)}
+									className="inline-flex items-center justify-center px-2 py-0.5 size-6 transition-colors hover:bg-neutral-300"
+									onClick={() => handleDelete(message.id)}
 								>
 									<Trash className="size-4 shrink-0" />
 								</button>
-								{!message.read && (
-									<span className="inline-flex items-center justify-center px-3 py-0.5 bg-blue-600/30 text-xs font-bold">
-										New
-									</span>
-								)}
 							</div>
 						</div>
-						<p className="whitespace-pre-wrap text-left bg-neutral-200 p-2">
-							{message.message}
-						</p>
+						<p className="whitespace-pre-wrap">{message.message}</p>
 						{!message.read && (
 							<div className="flex items-center justify-end">
 								<button
-									className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+									className="inline-flex items-center justify-center rounded-none px-3 py-1 bg-blue-600 text-white text-sm font-medium disabled:opacity-50 disabled:pointer-events-none"
 									onClick={() => message.id && handleMarkAsRead(message.id)}
 									disabled={processingId === message.id}
 								>
-									Mark as read
+									mark as read
 								</button>
 							</div>
 						)}
 					</div>
 				</div>
 			))}
-			{error && <p className="font-medium text-red-600">{error}</p>}
+			{error && (
+				<div className="inline-flex items-center bg-neutral-200 px-3 py-1 border-l-2 border-red-600 text-xs font-bold">
+					{error}
+				</div>
+			)}
 		</div>
 	);
 }

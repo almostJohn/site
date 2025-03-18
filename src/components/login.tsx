@@ -14,18 +14,19 @@ export function Login() {
 		setIsLoading(true);
 		setError(null);
 
-		const { success } = await loginAdmin(data);
-
 		try {
+			const { success, message } = await loginAdmin(data);
+
 			if (success) {
 				router.push("/admin");
 				router.refresh();
 			} else {
-				setError("Failed to login. Please try again");
+				setError(message);
 			}
 		} catch (error_) {
 			const error = error_ as Error;
-			setError(error.message);
+			console.error(error, error.message);
+			setError("An unexpected error occured.");
 		} finally {
 			setIsLoading(false);
 			setError(null);
@@ -67,7 +68,6 @@ export function Login() {
 						required
 					/>
 				</div>
-				{error && <p className="font-medium text-red-600">{error}</p>}
 				<button
 					type="submit"
 					className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
@@ -82,6 +82,11 @@ export function Login() {
 						<>Login</>
 					)}
 				</button>
+				{error && (
+					<div className="w-full inline-flex items-center px-3 py-1 bg-neutral-200 border-l-2 border-red-600 text-xs font-bold">
+						{error}
+					</div>
+				)}
 			</form>
 		</>
 	);

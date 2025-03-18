@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { sendMessage } from "@/app/actions";
+import { sendMessage } from "@/app/(index)/send-message/actions";
 import { Switch } from "./ui/switch";
 import { Loader2 } from "lucide-react";
 
@@ -44,7 +44,6 @@ export function MessageForm() {
 		} finally {
 			setIsSubmitting(false);
 			setError(null);
-			setToast(null);
 		}
 	}
 
@@ -99,8 +98,6 @@ export function MessageForm() {
 						onChange={(e) => setMessage(e.target.value)}
 						required
 					/>
-					{toast && <p className="font-medium">{toast}</p>}
-					{error && <p className="font-medium">{error}</p>}
 					<button
 						type="submit"
 						className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
@@ -114,6 +111,16 @@ export function MessageForm() {
 							<>Send message</>
 						)}
 					</button>
+					{error && (
+						<div className="w-full inline-flex items-center px-3 py-1 text-xs font-bold bg-neutral-200 border-l-2 border-red-600">
+							{error}
+						</div>
+					)}
+					{toast && (
+						<div className="w-full inline-flex items-center px-3 py-1 text-xs font-bold bg-neutral-200 border-l-2 border-green-500">
+							{toast}
+						</div>
+					)}
 				</div>
 			</form>
 		</>
