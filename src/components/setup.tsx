@@ -73,7 +73,6 @@ export function Setup() {
 			setError("An error occured during setup.");
 		} finally {
 			setIsSubmitting(false);
-			setError(null);
 		}
 	}
 
@@ -90,7 +89,7 @@ export function Setup() {
 		<>
 			<form onSubmit={handleSubmit} className="flex flex-col space-y-6">
 				<div className="flex flex-col space-y-1">
-					<h1 className="font-medium text-center">Admin setup</h1>
+					<h1 className="font-medium text-center">setup</h1>
 					<p className="text-neutral-500 text-center">
 						Create your admin account to manage your messages.
 					</p>

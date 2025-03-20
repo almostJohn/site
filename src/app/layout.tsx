@@ -5,7 +5,7 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
 	title: {
 		default: "almostjohn",
-		template: "%s | almostjohn",
+		template: "almostjohn — %s",
 	},
 	icons: {
 		other: [

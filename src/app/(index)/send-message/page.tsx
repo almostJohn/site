@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MessageForm } from "@/components/message-form";
 
 export const metadata: Metadata = {
-	title: "Send me a message",
+	title: "send me a message",
 };
 
 export default function Page() {

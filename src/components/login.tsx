@@ -9,16 +9,26 @@ export function Login() {
 	const router = useRouter();
 	const [isLoading, setIsLoading] = React.useState(false);
 	const [error, setError] = React.useState<string | null>(null);
+	const formRef = React.useRef<HTMLFormElement>(null);
 
-	async function formAction(data: FormData) {
+	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault();
+
+		if (isLoading) {
+			return;
+		}
+
 		setIsLoading(true);
 		setError(null);
 
 		try {
-			const { success, message } = await loginAdmin(data);
+			const formData = new FormData(e.currentTarget);
+
+			const { success, message } = await loginAdmin(formData);
 
 			if (success) {
-				router.push("/admin");
+				void router.push("/admin");
+
 				router.refresh();
 			} else {
 				setError(message);
@@ -26,18 +36,21 @@ export function Login() {
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);
-			setError("An unexpected error occured.");
+			setError("Something went wrong. Try again.");
 		} finally {
 			setIsLoading(false);
-			setError(null);
 		}
 	}
 
 	return (
 		<>
-			<form action={formAction} className="flex flex-col space-y-6">
+			<form
+				ref={formRef}
+				onSubmit={handleSubmit}
+				className="flex flex-col space-y-6"
+			>
 				<div className="flex flex-col space-y-1">
-					<h1 className="text-center font-medium">Admin login</h1>
+					<h1 className="text-center font-medium">login</h1>
 					<p className="text-neutral-500 text-center">
 						Enter your admin credentials to access the admin dashboard.
 					</p>

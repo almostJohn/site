@@ -7,7 +7,7 @@ import { getMessages } from "@/app/(index)/send-message/actions";
 import { Messages } from "@/components/messages";
 
 export const metadata: Metadata = {
-	title: "My messages",
+	title: "messages",
 };
 
 export default async function Page() {

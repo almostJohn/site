@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { checkAdminAuth } from "@/util/check-admin-auth";
 
 export const metadata: Metadata = {
-	title: "Settings",
+	title: "settings",
 };
 
 export default async function Page() {
