@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { sendMessage } from "@/app/(index)/send-message/actions";
+import { sendMessage } from "@/app/(index)/admin/actions";
 import { Switch } from "./ui/switch";
 import { Loader2 } from "lucide-react";
 
@@ -59,17 +59,6 @@ export function MessageForm() {
 	return (
 		<>
 			<form onSubmit={handleSubmit} className="flex flex-col space-y-6">
-				<h1 className="text-center font-medium">
-					Send me a message either{" "}
-					<span className="underline-offset-4 underline text-blue-600">
-						anonymously
-					</span>{" "}
-					or{" "}
-					<span className="underline-offset-4 underline text-blue-600">
-						publicly
-					</span>
-					.
-				</h1>
 				<div className="flex flex-col space-y-4">
 					<input
 						type="text"
@@ -78,7 +67,7 @@ export function MessageForm() {
 						value={displayName}
 						onChange={(e) => setDisplayName(e.target.value)}
 						disabled={isAnonymous}
-						className="inline-flex items-center p-2 rounded-none bg-transparent h-9 border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
+						className="inline-flex items-center p-2 rounded bg-transparent h-10 border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
 					/>
 					<div className="flex items-center gap-2">
 						<Switch
@@ -93,14 +82,14 @@ export function MessageForm() {
 					<textarea
 						id="message"
 						placeholder="Type your message here..."
-						className="inline-flex items-center p-2 min-h-[120px] bg-transparent rounded-none h-8 border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
+						className="inline-flex items-center p-2 min-h-[120px] bg-transparent rounded h-10 border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
 						value={message}
 						onChange={(e) => setMessage(e.target.value)}
 						required
 					/>
 					<button
 						type="submit"
-						className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+						className="inline-flex items-center justify-center rounded h-10 px-6 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
 						disabled={isSubmitting}
 					>
 						{isSubmitting ? (
@@ -108,7 +97,7 @@ export function MessageForm() {
 								<Loader2 className="size-4 animate-spin mr-2" /> Sending...
 							</>
 						) : (
-							<>Send message</>
+							<>Send</>
 						)}
 					</button>
 					{error && (

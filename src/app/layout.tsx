@@ -39,9 +39,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistMono.className} bg-neutral-50 text-neutral-950 antialiased selection:bg-teal-500/30 selection:text-teal-500`}
+				className={`${geistMono.className} bg-white text-black antialiased selection:bg-teal-500/30 selection:text-teal-500`}
 			>
-				<main className="min-h-screen text-sm">{children}</main>
+				<main className="min-h-screen container max-w-2xl text-sm">
+					{children}
+				</main>
 			</body>
 		</html>
 	);

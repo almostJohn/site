@@ -1,3 +1,4 @@
+import { SiteHeader } from "@/components/site-header";
 import * as React from "react";
 
 export default function IndexLayout({
@@ -7,7 +8,10 @@ export default function IndexLayout({
 }) {
 	return (
 		<>
-			<div className="container max-w-3xl flex flex-col">{children}</div>
+			<div>
+				<SiteHeader />
+				{children}
+			</div>
 		</>
 	);
 }

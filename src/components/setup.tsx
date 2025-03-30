@@ -88,10 +88,12 @@ export function Setup() {
 	return (
 		<>
 			<form onSubmit={handleSubmit} className="flex flex-col space-y-6">
-				<div className="flex flex-col space-y-1">
-					<h1 className="font-medium text-center">setup</h1>
-					<p className="text-neutral-500 text-center">
-						Create your admin account to manage your messages.
+				<div className="flex flex-col space-y-2">
+					<h1 className="text-2xl font-semibold">
+						<span className="text-blue-600">*</span> setup
+					</h1>
+					<p className="text-neutral-500">
+						create your admin account to manage your messages.
 					</p>
 				</div>
 				<div className="flex flex-col space-y-2">
@@ -101,7 +103,7 @@ export function Setup() {
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						placeholder="Username"
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded h-10 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						required
 					/>
 					<input
@@ -110,7 +112,7 @@ export function Setup() {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						placeholder="Password"
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded h-10 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						required
 					/>
 				</div>
@@ -127,13 +129,13 @@ export function Setup() {
 						id="confirm-password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded h-10 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						required
 					/>
 				</div>
 				<button
 					type="submit"
-					className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+					className="inline-flex items-center justify-center rounded h-10 px-6 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
 					disabled={isSubmitting}
 				>
 					{isSubmitting ? (
@@ -142,7 +144,7 @@ export function Setup() {
 							Creating account...
 						</>
 					) : (
-						<>Create account</>
+						<>Create</>
 					)}
 				</button>
 				{error && (

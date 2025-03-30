@@ -49,10 +49,12 @@ export function Login() {
 				onSubmit={handleSubmit}
 				className="flex flex-col space-y-6"
 			>
-				<div className="flex flex-col space-y-1">
-					<h1 className="text-center font-medium">login</h1>
-					<p className="text-neutral-500 text-center">
-						Enter your admin credentials to access the admin dashboard.
+				<div className="flex flex-col space-y-2">
+					<h1 className="text-2xl font-semibold">
+						<span className="text-blue-600">*</span> login
+					</h1>
+					<p className="text-neutral-500">
+						enter your admin credentials to continue.
 					</p>
 				</div>
 				<div className="flex flex-col space-y-2">
@@ -63,7 +65,7 @@ export function Login() {
 						type="text"
 						id="username"
 						name="username"
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded h-10 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						autoComplete="username"
 						required
 					/>
@@ -76,14 +78,14 @@ export function Login() {
 						type="password"
 						id="password"
 						name="password"
-						className="inline-flex items-center p-2 rounded-none h-9 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+						className="inline-flex items-center p-2 rounded h-10 bg-transparent border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0"
 						autoComplete="username"
 						required
 					/>
 				</div>
 				<button
 					type="submit"
-					className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+					className="inline-flex items-center justify-center h-10 rounded px-6 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
 					disabled={isLoading}
 				>
 					{isLoading ? (

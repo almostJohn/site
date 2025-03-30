@@ -30,7 +30,7 @@ export function LogoutButton() {
 
 	return (
 		<button
-			className="inline-flex items-center justify-center rounded-none px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+			className="inline-flex items-center justify-center rounded h-10 px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
 			onClick={handleLogout}
 			disabled={isLoading}
 		>

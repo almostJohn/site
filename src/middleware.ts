@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const PROTECTED_ROUTES = ["/admin", "/admin/messages", "/admin/settings"];
+const PROTECTED_ROUTES = ["/admin"];
 const DEFAULT_REDIRECT = "/admin";
 
 export function middleware(request: NextRequest) {

@@ -1,95 +1,56 @@
 import * as React from "react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/util/site";
 
 export default function IndexPage() {
 	return (
-		<div className="min-h-screen flex flex-col items-center justify-center gap-8 p-6">
-			<HomePageHeader />
-			<p className="text-center text-balance">
+		<div className="flex flex-col mt-8 gap-8 pb-10">
+			<p>
 				{
-					"I'm a 24 y/o software developer. I love building things, shuffling cards and solving problems. I enjoy language design and web development. I mostly use"
+					"I'm a 24 y/o software developer. I love building things, shuffling cards and solving problems. I enjoy language design and web development."
 				}{" "}
-				<a
+				I mostly use{" "}
+				<Link
 					href="https://nextjs.org"
-					rel="noreferrer"
-					target="_blank"
-					className="underline-offset-4 underline font-medium text-blue-600"
+					className="font-medium text-blue-600 underline underline-offset-4"
 				>
 					next.js
-				</a>
+				</Link>
 				, a framework built on top{" "}
-				<a
+				<Link
 					href="https://react.dev"
-					rel="noreferrer"
-					target="_blank"
-					className="underline-offset-4 underline font-medium text-blue-600"
+					className="font-medium text-blue-600 underline underline-offset-4"
 				>
 					react
-				</a>
-				.
+				</Link>
+				.{" "}
+				{
+					"If I'm not coding I'm probably watching anime, working out or playing my guitar."
+				}
 			</p>
-			<p className="text-balance text-center">
-				Want to send me a message?{" "}
-				<Link
-					href="/send-message"
-					className="underline-offset-4 underline font-medium text-blue-600"
-				>
-					Click here
-				</Link>{" "}
-				or write me an{" "}
-				<a
-					href={siteConfig.social.email}
-					rel="noreferrer"
-					target="_blank"
-					className="underline-offset-4 underline font-medium text-blue-600"
-				>
-					email
-				</a>{" "}
-				instead.
-			</p>
-			<p className="text-balance text-center">
-				{"If you're looking for my projects, you can find it"}{" "}
+			<div className="flex flex-col space-y-4">
+				<h3 className="text-2xl font-semibold">
+					<span className="text-blue-600">*</span> projects
+				</h3>
+				{siteConfig.projects.map((project, i) => (
+					<a key={i} href={project.href} className="flex flex-col space-y-2">
+						<h1 className="font-medium underline underline-offset-4 text-blue-600">
+							{project.title}
+						</h1>
+						<p>{project.description}</p>
+					</a>
+				))}
 				<a
 					href={siteConfig.social.projects}
 					rel="noreferrer"
 					target="_blank"
-					className="underline-offset-4 underline font-medium text-blue-600"
+					className="inline-flex group items-center gap-2 underline underline-offset-4 font-medium text-blue-600"
 				>
-					here
-				</a>
-				.
-			</p>
-		</div>
-	);
-}
-
-function HomePageHeader() {
-	return (
-		<>
-			<div className="flex items-center justify-center gap-2 font-medium mb-4">
-				<Link href="/" className="underline-offset-4 underline text-blue-600">
-					almostjohn
-				</Link>
-				/
-				<a
-					href={siteConfig.social.twitter}
-					rel="noreferrer"
-					target="_blank"
-					className="underline-offset-4 underline text-blue-600"
-				>
-					twitter
-				</a>
-				/
-				<a
-					href={siteConfig.social.github}
-					rel="noreferrer"
-					target="_blank"
-					className="underline-offset-4 underline text-blue-600"
-				>
-					github
+					all projects
+					<ArrowUpRight className="size-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
 				</a>
 			</div>
-		</>
+		</div>
 	);
 }
