@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Setup } from "@/components/setup";
+import { Setup } from "@/components/auth/setup";
 
 export const metadata: Metadata = {
 	title: "setup",

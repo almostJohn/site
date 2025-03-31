@@ -89,7 +89,7 @@ export function Setup() {
 		<>
 			<form onSubmit={handleSubmit} className="flex flex-col space-y-6">
 				<div className="flex flex-col space-y-2">
-					<h1 className="text-2xl font-semibold">
+					<h1 className="text-2xl font-bold">
 						<span className="text-blue-600">*</span> setup
 					</h1>
 					<p className="text-neutral-500">
@@ -122,7 +122,7 @@ export function Setup() {
 						id="confirm-password"
 						className="font-medium"
 					>
-						Confirm password
+						<span className="text-red-600">*</span> confirm password
 					</label>
 					<input
 						type="password"

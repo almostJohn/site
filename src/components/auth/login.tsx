@@ -50,7 +50,7 @@ export function Login() {
 				className="flex flex-col space-y-6"
 			>
 				<div className="flex flex-col space-y-2">
-					<h1 className="text-2xl font-semibold">
+					<h1 className="text-2xl font-bold">
 						<span className="text-blue-600">*</span> login
 					</h1>
 					<p className="text-neutral-500">
@@ -59,7 +59,7 @@ export function Login() {
 				</div>
 				<div className="flex flex-col space-y-2">
 					<label htmlFor="username" className="font-medium text-left">
-						Username
+						<span className="text-red-600">*</span> username
 					</label>
 					<input
 						type="text"
@@ -72,7 +72,7 @@ export function Login() {
 				</div>
 				<div className="flex flex-col space-y-2">
 					<label htmlFor="password" className="font-medium text-left">
-						Password
+						<span className="text-red-600">*</span> password
 					</label>
 					<input
 						type="password"

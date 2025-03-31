@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Login } from "@/components/login";
+import { Login } from "@/components/auth/login";
 
 export const metadata: Metadata = {
 	title: "login",

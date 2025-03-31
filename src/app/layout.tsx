@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { geistMono } from "@/util/fonts";
+import { siteConfig } from "@/util/site";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-	title: {
-		default: "almostjohn",
-		template: "almostjohn — %s",
-	},
+	title: siteConfig.title,
 	icons: {
 		other: [
 			{
@@ -41,9 +39,7 @@ export default function RootLayout({
 			<body
 				className={`${geistMono.className} bg-white text-black antialiased selection:bg-teal-500/30 selection:text-teal-500`}
 			>
-				<main className="min-h-screen container max-w-2xl text-sm">
-					{children}
-				</main>
+				<main className="min-h-screen container max-w-3xl">{children}</main>
 			</body>
 		</html>
 	);
