@@ -47,7 +47,7 @@ export function Login() {
 			<form
 				ref={formRef}
 				onSubmit={handleSubmit}
-				className="flex flex-col space-y-6"
+				className="flex flex-col space-y-4 p-5 rounded border border-neutral-200 shadow-md"
 			>
 				<div className="flex flex-col space-y-2">
 					<h1 className="text-2xl font-bold">

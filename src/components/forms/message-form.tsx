@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { sendMessage } from "@/app/(index)/admin/actions";
 import { Switch } from "@/components/ui/switch";
 import { Loader2 } from "lucide-react";
@@ -25,7 +26,7 @@ export function MessageForm() {
 
 		try {
 			await sendMessage({
-				displayName: isAnonymous ? "Anonymous" : displayName,
+				displayName: isAnonymous ? "anonymous" : displayName,
 				message: message.trim(),
 			});
 
@@ -35,7 +36,7 @@ export function MessageForm() {
 			if (!isAnonymous) {
 				setDisplayName("");
 			} else {
-				setDisplayName("Anonymous");
+				setDisplayName("anonymous");
 			}
 		} catch (error_) {
 			const error = error_ as Error;
@@ -49,7 +50,7 @@ export function MessageForm() {
 	function handleToggleAnonymous(checked: boolean) {
 		setIsAnonymous(checked);
 		if (checked) {
-			setDisplayName("Anonymous");
+			setDisplayName("anonymous");
 		} else {
 			setDisplayName("");
 		}
@@ -77,7 +78,7 @@ export function MessageForm() {
 					onCheckedChange={handleToggleAnonymous}
 				/>
 				<label htmlFor="anonymous-mode" className="font-medium">
-					{isAnonymous ? "Anonymous" : "Public"}
+					{isAnonymous ? "anonymous" : "public"}
 				</label>
 			</div>
 			<div className="flex flex-col space-y-2">
@@ -94,17 +95,29 @@ export function MessageForm() {
 			</div>
 			<button
 				type="submit"
-				className="inline-flex items-center justify-center rounded h-10 px-6 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+				className="inline-flex items-center justify-center rounded h-10 px-4 py-2 w-full bg-blue-600 text-white text-sm font-medium disabled:opacity-50 disabled:pointer-events-none"
 				disabled={isSubmitting}
 			>
 				{isSubmitting ? (
 					<>
-						<Loader2 className="size-4 animate-spin mr-2" /> Sending...
+						<Loader2 className="size-4 animate-spin mr-2" /> sending...
 					</>
 				) : (
-					<>Send</>
+					<>send</>
 				)}
 			</button>
+			<div className="flex items-center justify-center text-center">
+				<p className="text-sm text-center">
+					by sending a message you agree on my{" "}
+					<Link
+						href="/terms"
+						className="font-medium underline underline-offset-4 text-blue-600"
+					>
+						terms
+					</Link>
+					.
+				</p>
+			</div>
 			{error && (
 				<div className="inline-flex items-center bg-neutral-200 px-3 py-2 border-l-2 border-red-600 text-xs font-medium">
 					{error}

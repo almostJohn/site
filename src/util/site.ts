@@ -3,6 +3,7 @@ export const siteConfig = {
 		default: "almostjohn",
 		template: "almostjohn — %s",
 	},
+	name: "almostjohn",
 	email: "mailto:garcia.johngale@gmail.com",
 };
 

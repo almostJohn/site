@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 		],
 	},
 	appleWebApp: {
-		title: "almostjohn",
+		title: siteConfig.name,
 	},
-	applicationName: "almostjohn",
+	applicationName: siteConfig.name,
 	openGraph: {
-		siteName: "almostjohn",
+		siteName: siteConfig.name,
 		type: "website",
-		title: "almostjohn",
+		title: siteConfig.name,
 	},
 	twitter: {
 		card: "summary_large_image",
@@ -37,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistMono.className} bg-white text-black antialiased selection:bg-teal-500/30 selection:text-teal-500`}
+				className={`${geistMono.className} bg-neutral-100 text-neutral-900 antialiased selection:bg-teal-500/30 selection:text-teal-500`}
 			>
 				<main className="min-h-screen container max-w-3xl">{children}</main>
 			</body>

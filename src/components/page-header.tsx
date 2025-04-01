@@ -41,5 +41,5 @@ export function PageHeaderDescription({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
-	return <p className={cn("text-balance", className)} {...props} />;
+	return <p className={cn("max-w-5xl", className)} {...props} />;
 }

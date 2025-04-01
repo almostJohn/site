@@ -87,7 +87,10 @@ export function Setup() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="flex flex-col space-y-6">
+			<form
+				onSubmit={handleSubmit}
+				className="flex flex-col space-y-4 p-5 rounded border border-neutral-200 shadow-md"
+			>
 				<div className="flex flex-col space-y-2">
 					<h1 className="text-2xl font-bold">
 						<span className="text-blue-600">*</span> setup

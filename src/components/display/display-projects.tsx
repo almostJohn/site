@@ -1,28 +1,5 @@
 import * as React from "react";
-
-const projects = [
-	{
-		title: "next-djs-framework",
-		href: "https://djs-fwk.vercel.app",
-		description: "a framework for building discord bot the fastest way.",
-	},
-	{
-		title: "next-tsconfig",
-		href: "https://tscfg.vercel.app",
-		description:
-			"a typescript configuration that you can copy and paste into your projects.",
-	},
-	{
-		title: "next-simplynote",
-		href: "https://simplynote.vercel.app",
-		description: "take notes with ease.",
-	},
-	{
-		title: "pochita",
-		href: "https://github.com/almostJohn/pochita",
-		description: "pochita the discord bot.",
-	},
-];
+import { projects } from "@/util/data";
 
 export function DisplayProjects() {
 	return (

@@ -34,10 +34,10 @@ export default async function Page() {
 				<PageHeaderDescription>
 					my dashboard, messages and more...
 				</PageHeaderDescription>
-				<div className="py-6">
+				<div className="pt-4 pb-6">
 					<DisplayMessages messages={messages} />
 				</div>
-				<div className="py-8 border-t border-dashed border-neutral-200">
+				<div className="pt-5 border-t border-dashed border-neutral-200">
 					<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:w-full">
 						<div className="flex items-center justify-center">
 							<h2 className="font-medium">
