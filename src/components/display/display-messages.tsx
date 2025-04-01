@@ -4,10 +4,11 @@ import * as React from "react";
 import { Message } from "@prisma/client";
 import { deleteMessage, markAsRead } from "@/app/(index)/admin/actions";
 import { Message as MessageComponent } from "../message";
+import { useToast } from "../context/toast-context";
 
 export function DisplayMessages({ messages }: { messages: Message[] }) {
 	const [processingId, setProcessingId] = React.useState<string | null>(null);
-	const [error, setError] = React.useState<string | null>(null);
+	const { addToast } = useToast();
 
 	if (messages.length === 0) {
 		return (
@@ -23,13 +24,13 @@ export function DisplayMessages({ messages }: { messages: Message[] }) {
 		setProcessingId(id);
 		try {
 			await markAsRead(id);
+			addToast("marked message as read.", "success");
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error);
-			setError("Failed to mark message as read.");
+			addToast("failed to mark message as read.", "error");
 		} finally {
 			setProcessingId(null);
-			setError(null);
 		}
 	}
 
@@ -37,13 +38,13 @@ export function DisplayMessages({ messages }: { messages: Message[] }) {
 		setProcessingId(id);
 		try {
 			await deleteMessage(id);
+			addToast("message deleted.", "success");
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error);
-			setError("Failed to delete message.");
+			addToast("failed to delete message.", "error");
 		} finally {
 			setProcessingId(null);
-			setError(null);
 		}
 	}
 
@@ -73,11 +74,6 @@ export function DisplayMessages({ messages }: { messages: Message[] }) {
 					))}
 				</div>
 			</div>
-			{error && (
-				<div className="inline-flex items-center bg-neutral-200 px-3 py-2 border-l-2 border-red-600 text-xs font-medium">
-					{error}
-				</div>
-			)}
 		</div>
 	);
 }

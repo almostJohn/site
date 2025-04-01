@@ -18,8 +18,7 @@ export function LogoutButton() {
 
 		try {
 			await logoutAdmin();
-
-			router.push("/admin");
+			void router.push("/admin");
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);

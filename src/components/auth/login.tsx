@@ -4,11 +4,12 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loginAdmin } from "@/app/(auth)/login/actions";
 import { Loader2 as LoadingIcon } from "lucide-react";
+import { useToast } from "../context/toast-context";
 
 export function Login() {
 	const router = useRouter();
 	const [isLoading, setIsLoading] = React.useState(false);
-	const [error, setError] = React.useState<string | null>(null);
+	const { addToast } = useToast();
 	const formRef = React.useRef<HTMLFormElement>(null);
 
 	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -19,7 +20,6 @@ export function Login() {
 		}
 
 		setIsLoading(true);
-		setError(null);
 
 		try {
 			const formData = new FormData(e.currentTarget);
@@ -28,15 +28,15 @@ export function Login() {
 
 			if (success) {
 				void router.push("/admin");
-
+				addToast(message, "success");
 				router.refresh();
 			} else {
-				setError(message);
+				addToast(message, "error");
 			}
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);
-			setError("Something went wrong. Try again.");
+			addToast("Something went wrong. Try again.", "error");
 		} finally {
 			setIsLoading(false);
 		}
@@ -97,11 +97,6 @@ export function Login() {
 						<>Login</>
 					)}
 				</button>
-				{error && (
-					<div className="w-full inline-flex items-center px-3 py-1 bg-neutral-200 border-l-2 border-red-600 text-xs font-bold">
-						{error}
-					</div>
-				)}
 			</form>
 		</>
 	);

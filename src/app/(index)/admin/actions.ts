@@ -25,7 +25,7 @@ export async function sendMessage(messageData: MessageInput): Promise<void> {
 		},
 	});
 
-	revalidatePath("/send-message");
+	revalidatePath("/contact");
 }
 
 export async function markAsRead(id: string): Promise<void> {
@@ -36,7 +36,7 @@ export async function markAsRead(id: string): Promise<void> {
 		data: { read: true },
 	});
 
-	revalidatePath("/admin/messages");
+	revalidatePath("/admin");
 }
 
 export async function deleteMessage(id: string): Promise<void> {
@@ -44,5 +44,5 @@ export async function deleteMessage(id: string): Promise<void> {
 		where: { id },
 	});
 
-	revalidatePath("/admin/messages");
+	revalidatePath("/admin");
 }

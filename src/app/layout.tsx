@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { geistMono } from "@/util/fonts";
 import { siteConfig } from "@/util/site";
+import { ToastProvider } from "@/components/context/toast-context";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -39,7 +40,9 @@ export default function RootLayout({
 			<body
 				className={`${geistMono.className} bg-neutral-100 text-neutral-900 antialiased selection:bg-teal-500/30 selection:text-teal-500`}
 			>
-				<main className="min-h-screen container max-w-3xl">{children}</main>
+				<main className="min-h-screen container max-w-3xl">
+					<ToastProvider>{children}</ToastProvider>
+				</main>
 			</body>
 		</html>
 	);

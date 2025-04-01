@@ -4,16 +4,17 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { checkAdminExists, createAdminUser } from "@/app/(auth)/setup/actions";
 import { Loader2 as LoadingIcon } from "lucide-react";
+import { useToast } from "../context/toast-context";
 
 export function Setup() {
 	const router = useRouter();
 	const [username, setUsername] = React.useState("");
 	const [password, setPassword] = React.useState("");
-	const [error, setError] = React.useState<string | null>(null);
 	const [confirmPassword, setConfirmPassword] = React.useState("");
 	const [isLoading, setIsLoading] = React.useState(false);
 	const [isSubmitting, setIsSubmitting] = React.useState(false);
 	const [adminExists, setAdminExists] = React.useState<boolean | null>(null);
+	const { addToast } = useToast();
 
 	React.useEffect(() => {
 		async function checkAdmin() {
@@ -24,35 +25,39 @@ export function Setup() {
 				setAdminExists(exists);
 
 				if (exists) {
-					setError(
+					addToast(
 						"Admin already exists. Please login with your existing admin account.",
+						"error",
 					);
 					router.push("/login");
 				}
 			} catch (error_) {
 				const error = error_ as Error;
 				console.error("Error checking admin: ", error.message);
-				setError("Could not check if admin exists.");
+				addToast("Could not check if admin exists.", "error");
 			} finally {
 				setIsLoading(false);
-				setError(null);
 			}
 		}
 
 		checkAdmin();
-	}, [router]);
+	}, [router, addToast]);
 
 	async function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
 
 		if (password !== confirmPassword) {
-			setError("Passwords don't match. Please make sure your passwords match.");
+			addToast(
+				"Passwords don't match. Please make sure your passwords match.",
+				"error",
+			);
 			return;
 		}
 
 		if (password.length < 8) {
-			setError(
+			addToast(
 				"Password too short. Password must be at least 8 characters long.",
+				"error",
 			);
 			return;
 		}
@@ -63,14 +68,15 @@ export function Setup() {
 			const { success } = await createAdminUser(username, password);
 
 			if (success) {
-				router.push("/login");
+				void router.push("/login");
+				addToast("Setup created successfully", "success");
 			} else {
-				setError("Admin setup failed. Please try again.");
+				addToast("Admin setup failed. Please try again.", "error");
 			}
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);
-			setError("An error occured during setup.");
+			addToast("An error occured during setup.", "error");
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -150,11 +156,6 @@ export function Setup() {
 						<>Create</>
 					)}
 				</button>
-				{error && (
-					<div className="inline-flex items-center px-3 py-1 text-xs font-bold bg-neutral-200 border-l-2 border-red-600">
-						{error}
-					</div>
-				)}
 			</form>
 		</>
 	);

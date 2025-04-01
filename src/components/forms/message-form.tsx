@@ -5,20 +5,20 @@ import Link from "next/link";
 import { sendMessage } from "@/app/(index)/admin/actions";
 import { Switch } from "@/components/ui/switch";
 import { Loader2 } from "lucide-react";
+import { useToast } from "../context/toast-context";
 
 export function MessageForm() {
 	const [displayName, setDisplayName] = React.useState("");
 	const [message, setMessage] = React.useState("");
 	const [isAnonymous, setIsAnonymous] = React.useState(false);
 	const [isSubmitting, setIsSubmitting] = React.useState(false);
-	const [error, setError] = React.useState<string | null>(null);
-	const [success, setSuccess] = React.useState<string | null>(null);
+	const { addToast } = useToast();
 
 	async function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
 
 		if (!message.trim()) {
-			setError("Cannot send an empty string.");
+			addToast("Cannot send an empty string.", "error");
 			return;
 		}
 
@@ -30,7 +30,7 @@ export function MessageForm() {
 				message: message.trim(),
 			});
 
-			setSuccess("Your message has been sent.");
+			addToast("Your message has been sent.", "success");
 			setMessage("");
 
 			if (!isAnonymous) {
@@ -41,7 +41,10 @@ export function MessageForm() {
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);
-			setError("There was an error sending your message. Please try again.");
+			addToast(
+				"There was an error sending your message. Please try again.",
+				"error",
+			);
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -118,16 +121,6 @@ export function MessageForm() {
 					.
 				</p>
 			</div>
-			{error && (
-				<div className="inline-flex items-center bg-neutral-200 px-3 py-2 border-l-2 border-red-600 text-xs font-medium">
-					{error}
-				</div>
-			)}
-			{success && (
-				<div className="inline-flex items-center bg-neutral-200 px-3 py-2 border-l-2 border-green-600 text-xs font-medium">
-					{success}
-				</div>
-			)}
 		</form>
 	);
 }
