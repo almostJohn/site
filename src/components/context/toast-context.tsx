@@ -4,14 +4,19 @@ import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, X } from "lucide-react";
 
+export const enum ToastType {
+	Success = "success",
+	Error = "error",
+}
+
 type Toast = {
 	id: number;
 	message: string;
-	type?: "success" | "error";
+	type?: ToastType;
 };
 
 type ToastContextType = {
-	addToast(message: string, type?: "success" | "error"): void;
+	addToast(message: string, type?: ToastType): void;
 };
 
 const ToastContext = React.createContext<ToastContextType | undefined>(
@@ -25,7 +30,7 @@ export function ToastProvider({
 }) {
 	const [toasts, setToasts] = React.useState<Toast[]>([]);
 
-	function addToast(message: string, type?: "success" | "error") {
+	function addToast(message: string, type?: ToastType) {
 		const newToast: Toast = { id: Date.now(), message, type };
 
 		setToasts((prev) => [...prev, newToast]);

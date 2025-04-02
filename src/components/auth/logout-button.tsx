@@ -4,6 +4,7 @@ import * as React from "react";
 import { logoutAdmin } from "@/app/(auth)/login/actions";
 import { useRouter } from "next/navigation";
 import { Loader2 as LoadingIcon } from "lucide-react";
+import { Button } from "../ui/button";
 
 export function LogoutButton() {
 	const router = useRouter();
@@ -18,7 +19,7 @@ export function LogoutButton() {
 
 		try {
 			await logoutAdmin();
-			void router.push("/admin");
+			void router.push("/login");
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);
@@ -28,19 +29,19 @@ export function LogoutButton() {
 	}
 
 	return (
-		<button
-			className="inline-flex items-center justify-center rounded h-10 px-4 py-2 bg-blue-600 text-white text-sm font-medium w-full disabled:opacity-50 disabled:pointer-events-none"
+		<Button
 			onClick={handleLogout}
 			disabled={isLoading}
+			className="rounded w-full"
 		>
 			{isLoading ? (
 				<>
 					<LoadingIcon className="size-4 animate-spin mr-2" />
-					Logging out
+					logging out
 				</>
 			) : (
-				<>Log out</>
+				<>logout</>
 			)}
-		</button>
+		</Button>
 	);
 }

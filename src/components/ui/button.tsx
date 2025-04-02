@@ -7,11 +7,11 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "bg-neutral-50 text-neutral-900 hover:bg-neutral-50/90",
+				default: "bg-blue-600 text-white hover:bg-blue-600/90",
 				destructive: "bg-red-600 text-white hover:bg-red-600/90",
 				outline:
-					"border border-neutral-800 bg-transparent hover:bg-neutral-800",
-				ghost: "bg-transparent hover:bg-neutral-800",
+					"border border-neutral-300 bg-transparent hover:bg-neutral-200",
+				ghost: "bg-transparent hover:bg-neutral-200",
 				link: "underline-offset-4 hover:underline",
 			},
 			size: {

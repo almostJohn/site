@@ -26,11 +26,10 @@ function isRateLimited(ip: string): boolean {
 export async function loginAdmin(
 	data: FormData,
 	ip: string = "unknown",
-): Promise<{ success: boolean; message: string }> {
+): Promise<{ success: boolean }> {
 	if (isRateLimited(ip)) {
 		return {
 			success: false,
-			message: "Too many login attempts. Please try again later.",
 		};
 	}
 
@@ -42,7 +41,6 @@ export async function loginAdmin(
 	if (!username || !password) {
 		return {
 			success: false,
-			message: "Username and password are required.",
 		};
 	}
 
@@ -52,14 +50,12 @@ export async function loginAdmin(
 		if (!admin) {
 			return {
 				success: false,
-				message: "Admin account not set up.",
 			};
 		}
 
 		if (admin.username !== username) {
 			return {
 				success: false,
-				message: "Invalid credentials.",
 			};
 		}
 
@@ -68,7 +64,6 @@ export async function loginAdmin(
 		if (!passwordMatch) {
 			return {
 				success: false,
-				message: "Invalid credentials.",
 			};
 		}
 
@@ -82,13 +77,12 @@ export async function loginAdmin(
 			path: "/",
 		});
 
-		return { success: true, message: "Login successful." };
+		return { success: true };
 	} catch (error_) {
 		const error = error_ as Error;
 		console.error(error, error.message);
 		return {
 			success: false,
-			message: error.message,
 		};
 	}
 }

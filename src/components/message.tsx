@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Check, Trash2 } from "lucide-react";
 import { formatRelativeDate } from "@/util/format-date";
+import { Badge } from "./ui/badge";
 
 type MessageProps = {
 	message: string;
@@ -36,9 +37,7 @@ export function Message({
 					<div className="flex items-center gap-2">
 						{!read && (
 							<>
-								<span className="inline-flex items-center justify-center px-3 py-0.5 rounded-full bg-blue-600 text-white text-xs font-bold cursor-pointer">
-									new
-								</span>
+								<Badge className="rounded-full">new</Badge>
 								<button
 									className="inline-flex items-center justify-center rounded-full px-2 py-0.5 size-6 transition-colors hover:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none"
 									onClick={handleMarkAsRead}
@@ -48,6 +47,7 @@ export function Message({
 								</button>
 							</>
 						)}
+						{read && <Badge className="rounded-full">seen</Badge>}
 						<button
 							className="inline-flex items-center justify-center rounded-full px-2 py-0.5 size-6 transition-colors hover:bg-neutral-200"
 							onClick={handleDelete}

@@ -4,7 +4,8 @@ import * as React from "react";
 import { Message } from "@prisma/client";
 import { deleteMessage, markAsRead } from "@/app/(index)/admin/actions";
 import { Message as MessageComponent } from "../message";
-import { useToast } from "../context/toast-context";
+import { useToast, ToastType } from "../context/toast-context";
+import { responses } from "@/util/responses";
 
 export function DisplayMessages({ messages }: { messages: Message[] }) {
 	const [processingId, setProcessingId] = React.useState<string | null>(null);
@@ -24,11 +25,11 @@ export function DisplayMessages({ messages }: { messages: Message[] }) {
 		setProcessingId(id);
 		try {
 			await markAsRead(id);
-			addToast("marked message as read.", "success");
+			addToast(responses.success.message_marked_as_read, ToastType.Success);
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error);
-			addToast("failed to mark message as read.", "error");
+			addToast(responses.error.generic, ToastType.Error);
 		} finally {
 			setProcessingId(null);
 		}
@@ -38,11 +39,11 @@ export function DisplayMessages({ messages }: { messages: Message[] }) {
 		setProcessingId(id);
 		try {
 			await deleteMessage(id);
-			addToast("message deleted.", "success");
+			addToast(responses.success.message_deleted, ToastType.Success);
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error);
-			addToast("failed to delete message.", "error");
+			addToast(responses.error.generic, ToastType.Error);
 		} finally {
 			setProcessingId(null);
 		}

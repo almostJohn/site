@@ -1,11 +1,16 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { sendMessage } from "@/app/(index)/admin/actions";
+import { Button } from "../ui/button";
+import { LinkButton } from "../ui/link-button";
 import { Switch } from "@/components/ui/switch";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Label } from "../ui/label";
 import { Loader2 } from "lucide-react";
-import { useToast } from "../context/toast-context";
+import { useToast, ToastType } from "../context/toast-context";
+import { responses } from "@/util/responses";
 
 export function MessageForm() {
 	const [displayName, setDisplayName] = React.useState("");
@@ -18,7 +23,7 @@ export function MessageForm() {
 		e.preventDefault();
 
 		if (!message.trim()) {
-			addToast("Cannot send an empty string.", "error");
+			addToast(responses.error.no_message, ToastType.Error);
 			return;
 		}
 
@@ -30,7 +35,7 @@ export function MessageForm() {
 				message: message.trim(),
 			});
 
-			addToast("Your message has been sent.", "success");
+			addToast(responses.success.message_sent, ToastType.Success);
 			setMessage("");
 
 			if (!isAnonymous) {
@@ -41,10 +46,7 @@ export function MessageForm() {
 		} catch (error_) {
 			const error = error_ as Error;
 			console.error(error, error.message);
-			addToast(
-				"There was an error sending your message. Please try again.",
-				"error",
-			);
+			addToast(responses.error.generic, ToastType.Error);
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -62,16 +64,15 @@ export function MessageForm() {
 	return (
 		<form onSubmit={handleSubmit} className="flex flex-col space-y-4">
 			<div className="flex flex-col space-y-2">
-				<label htmlFor="name" className="font-medium">
+				<Label htmlFor="name">
 					<span className="text-red-600">*</span> name
-				</label>
-				<input
+				</Label>
+				<Input
 					type="text"
 					id="name"
 					value={displayName}
 					onChange={(e) => setDisplayName(e.target.value)}
 					disabled={isAnonymous}
-					className="inline-flex items-center p-2 rounded bg-transparent h-10 border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
 				/>
 			</div>
 			<div className="flex items-center gap-2">
@@ -80,27 +81,23 @@ export function MessageForm() {
 					checked={isAnonymous}
 					onCheckedChange={handleToggleAnonymous}
 				/>
-				<label htmlFor="anonymous-mode" className="font-medium">
+				<Label htmlFor="anonymous-mode">
 					{isAnonymous ? "anonymous" : "public"}
-				</label>
+				</Label>
 			</div>
 			<div className="flex flex-col space-y-2">
-				<label htmlFor="message" className="font-medium">
+				<Label htmlFor="message">
 					<span className="text-red-600">*</span> message
-				</label>
-				<textarea
+				</Label>
+				<Textarea
 					id="message"
-					className="inline-flex items-center p-2 min-h-[120px] bg-transparent rounded h-10 border border-neutral-300 transition-colors hover:border-blue-600 focus:border-blue-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
+					className="h-56"
 					required
 				/>
 			</div>
-			<button
-				type="submit"
-				className="inline-flex items-center justify-center rounded h-10 px-4 py-2 w-full bg-blue-600 text-white text-sm font-medium disabled:opacity-50 disabled:pointer-events-none"
-				disabled={isSubmitting}
-			>
+			<Button type="submit" disabled={isSubmitting} className="rounded">
 				{isSubmitting ? (
 					<>
 						<Loader2 className="size-4 animate-spin mr-2" /> sending...
@@ -108,17 +105,11 @@ export function MessageForm() {
 				) : (
 					<>send</>
 				)}
-			</button>
+			</Button>
 			<div className="flex items-center justify-center text-center">
 				<p className="text-sm text-center">
 					by sending a message you agree on my{" "}
-					<Link
-						href="/terms"
-						className="font-medium underline underline-offset-4 text-blue-600"
-					>
-						terms
-					</Link>
-					.
+					<LinkButton href="/terms">terms</LinkButton>.
 				</p>
 			</div>
 		</form>

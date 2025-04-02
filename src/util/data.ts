@@ -75,5 +75,33 @@ export const socials = [
 	},
 ];
 
+export const terms = [
+	{
+		title: "respectful communication",
+		content:
+			"you agree to communicate respectfully and refrain from sending any harmful, harassing, offensive, or illegal content.",
+	},
+	{
+		title: "no spam or unsolicited promotions",
+		content:
+			"you may not use the messaging feature to send spam, advertisements, or any unsolicited promotional content.",
+	},
+	{
+		title: "privacy & confidentiality",
+		content:
+			"while I respect your privacy, i cannot guarantee the security of messages. Do not share sensitive or personal information.",
+	},
+	{
+		title: "no liability",
+		content:
+			"i am not responsible for any consequences resulting from the use of this messaging feature, including any misunderstandings or miscommunications.",
+	},
+	{
+		title: "right to refuse or block messages",
+		content:
+			"i reserve the right to refuse, delete, or block any messages that violate these terms or are deemed inappropriate.",
+	},
+];
+
 export type Projects = typeof projects;
 export type Socials = typeof socials;
