@@ -15,11 +15,8 @@ export default {
 					"2xl": "1400px",
 				},
 			},
-			colors: {
-				background: "var(--background)",
-				foreground: "var(--foreground)",
-			},
 		},
 	},
-	plugins: [],
+	// eslint-disable-next-line @typescript-eslint/no-require-imports
+	plugins: [require("tailwindcss-animate")],
 } satisfies Config;

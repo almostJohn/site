@@ -1,7 +1,7 @@
 "use client";
 
 import type { Metadata } from "next";
-import { fontMono } from "@/util/fonts";
+import { geistMono } from "@/util/fonts";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function GlobalError({ error }: { readonly error: Error }) {
 	return (
 		<html lang="en" suppressContentEditableWarning>
 			<body
-				className={`${fontMono.className} bg-white text-gray-900 antialiased`}
+				className={`${geistMono.className} bg-white text-gray-900 antialiased`}
 			>
 				<div className="h-screen flex justify-center items-center">
 					<div className="flex flex-col space-y-6">
