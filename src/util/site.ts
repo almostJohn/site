@@ -4,7 +4,6 @@ export const siteConfig = {
 		template: "almostjohn — %s",
 	},
 	name: "almostjohn",
-	email: "mailto:garcia.johngale@gmail.com",
 };
 
 export type SiteConfig = typeof siteConfig;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { geistMono } from "@/util/fonts";
 import { siteConfig } from "@/util/site";
-import { ToastProvider } from "@/components/context/toast-context";
+import { SiteHeader } from "@/components/site-header";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		siteName: siteConfig.name,
 		type: "website",
-		title: siteConfig.name,
+		title: siteConfig.title,
 	},
 	twitter: {
 		card: "summary_large_image",
@@ -38,10 +38,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistMono.className} bg-neutral-100 text-neutral-900 antialiased selection:bg-teal-500/30 selection:text-teal-500`}
+				className={`${geistMono.className} bg-neutral-900 text-white antialiased`}
 			>
-				<main className="min-h-screen container max-w-3xl">
-					<ToastProvider>{children}</ToastProvider>
+				<main className="min-h-screen mx-auto max-w-4xl">
+					<SiteHeader />
+					{children}
 				</main>
 			</body>
 		</html>
