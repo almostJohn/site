@@ -1,21 +1,24 @@
 import * as React from "react";
 import type { Metadata } from "next";
+import { Container } from "@/components/ui/container";
+import { Heading } from "@/components/ui/heading";
+import { Paragraph } from "@/components/ui/paragraph";
 
 export const metadata: Metadata = {
-	title: "Blog",
+	title: "blog",
 };
 
 export default function Page() {
 	return (
-		<div className="w-full pt-16 px-4 md:px-6">
-			<div className="flex flex-col gap-8">
-				<div className="flex flex-col space-y-4">
-					<h1 className="text-4xl font-bold">
+		<Container>
+			<div className="flex flex-col gap-10">
+				<div className="flex flex-col space-y-2">
+					<Heading.h1>
 						<span className="text-sky-500">*</span> blog
-					</h1>
-					<p className="text-neutral-400">{"read my blogs."}</p>
+					</Heading.h1>
+					<Paragraph>read my blogs.</Paragraph>
 				</div>
 			</div>
-		</div>
+		</Container>
 	);
 }

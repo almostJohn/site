@@ -4,10 +4,12 @@ import * as React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Heading } from "../ui/heading";
+import { Paragraph } from "../ui/paragraph";
 
 const projects = [
 	{
-		name: "@almostjohn/scaffold.js",
+		name: "scaffold.js",
 		href: "https://github.com/almostJohn/scaffold.js",
 		description:
 			"scaffold.js is a lightweight framework built on top of discord.js, designed to simplify and speed up Discord bot development. It provides structure, utilities, and sensible defaults—so you can focus on building features, not boilerplate.",
@@ -40,11 +42,92 @@ const projects = [
 	{
 		name: "site",
 		href: "https://github.com/almostJohn/site",
-		description: "My own portfolio website built with Next.js and Tailwind CSS",
+		description:
+			"My own portfolio website built with Next.js and Tailwind CSS.",
 		job: "creator and maintainer",
 		tech: ["next.js", "tailwind css", "react", "typescript"],
 	},
 ];
+
+function MainProjects({
+	name,
+	href,
+	description,
+	job,
+	tech,
+}: {
+	name: string;
+	href: string;
+	description: string;
+	job: string;
+	tech: Array<string>;
+}) {
+	return (
+		<a
+			href={href}
+			rel="noreferrer"
+			target="_blank"
+			className="block p-5 group border border-neutral-700 transition-colors hover:border-sky-500"
+		>
+			<div className="flex flex-col space-y-5">
+				<div className="flex justify-between w-full">
+					<div className="flex flex-col space-y-1">
+						<Heading.h4 className="transition-colors group-hover:text-sky-500">
+							{name}
+						</Heading.h4>
+						<span className="text-neutral-500 text-sm">{job}</span>
+					</div>
+					<div className="flex justify-end">
+						<ArrowUpRight className="size-5 shrink-0 transition-colors group-hover:text-sky-500" />
+					</div>
+				</div>
+				<Paragraph>{description.toLowerCase()}</Paragraph>
+				<div className="flex flex-col space-y-2">
+					<Heading.h4>technologies</Heading.h4>
+					<div className="flex items-center flex-wrap gap-2">
+						{tech.map((item, i) => (
+							<div
+								key={i}
+								className="inline-flex items-center justify-center px-2 py-0.5 rounded bg-neutral-700 text-xs font-bold"
+							>
+								{item}
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</a>
+	);
+}
+
+function FeatureProjects({
+	name,
+	href,
+	description,
+	job,
+}: {
+	name: string;
+	href: string;
+	description: string;
+	job: string;
+}) {
+	return (
+		<a
+			href={href}
+			rel="noreferrer"
+			target="_blank"
+			className="flex flex-col space-y-3 group"
+		>
+			<div className="flex flex-col space-y-1.5">
+				<Heading.h4 className="transition-colors group-hover:text-sky-500">
+					{name}
+				</Heading.h4>
+				<span className="text-neutral-500">{job}</span>
+			</div>
+			<Paragraph>{description.toLowerCase()}</Paragraph>
+		</a>
+	);
+}
 
 export function Projects({ path = "/projects" }: { path?: string }) {
 	const pathname = usePathname();
@@ -52,63 +135,34 @@ export function Projects({ path = "/projects" }: { path?: string }) {
 	return (
 		<>
 			{pathname === path ? (
-				<div className="flex flex-col space-y-6">
+				<div className="flex flex-col gap-8">
 					{projects.map((item) => (
-						<a
+						<MainProjects
 							key={item.href}
 							href={item.href}
-							rel="noreferrer"
-							target="_blank"
-							className="block relative p-4 group border border-neutral-700 transition-colors hover:border-sky-500"
-						>
-							<div className="flex flex-col gap-6">
-								<ArrowUpRight className="size-5 group-hover:text-sky-500 absolute top-4 right-4" />
-								<div className="flex flex-col space-y-3">
-									<h1 className="text-xl font-bold transition-colors group-hover:text-sky-500">
-										{item.name}
-									</h1>
-									<span className="text-neutral-400 text-sm">{item.job}</span>
-									<p>{item.description.toLowerCase()}</p>
-								</div>
-								<div className="flex flex-col space-y-3">
-									<h1 className="font-bold">technologies</h1>
-									<div className="flex items-center flex-wrap gap-4">
-										{item.tech.map((name, i) => (
-											<div
-												key={i}
-												className="inline-flex items-center justify-center rounded px-2 py-0.5 text-xs font-semibold bg-neutral-700"
-											>
-												{name}
-											</div>
-										))}
-									</div>
-								</div>
-							</div>
-						</a>
+							name={item.name}
+							description={item.description}
+							job={item.job}
+							tech={item.tech}
+						/>
 					))}
 				</div>
 			) : (
 				<div className="flex flex-col space-y-6">
-					<h1 className="text-2xl font-bold leading-snug">
+					<Heading.h2 className="mb-2">
 						<span className="text-sky-500">*</span> projects
-					</h1>
-					{projects.slice(0, 2).map((item) => (
-						<a
-							key={item.href}
-							href={item.href}
-							rel="noreferrer"
-							target="_blank"
-							className="block group"
-						>
-							<div className="flex flex-col space-y-2">
-								<h1 className="text-lg font-bold transition-colors group-hover:text-sky-500">
-									{item.name}
-								</h1>
-								<span className="text-sm text-neutral-400">{item.job}</span>
-								<p className="pt-1">{item.description.toLowerCase()}</p>
-							</div>
-						</a>
-					))}
+					</Heading.h2>
+					<div className="flex flex-col gap-8">
+						{projects.slice(0, 2).map((item) => (
+							<FeatureProjects
+								key={item.href}
+								name={item.name}
+								href={item.href}
+								description={item.description}
+								job={item.job}
+							/>
+						))}
+					</div>
 					<Link
 						href={path}
 						className="inline-flex gap-1 items-center text-sky-500 hover:underline group"

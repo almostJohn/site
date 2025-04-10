@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Heading } from "../ui/heading";
 
 const links = [
 	{
@@ -14,6 +15,10 @@ const links = [
 		href: "https://x.com/almostJohn1",
 	},
 	{
+		name: "fb.com",
+		href: "https://facebook.com/alsojohn01",
+	},
+	{
 		name: "linkedin",
 		href: "https://www.linkedin.com/in/almostjohn/",
 	},
@@ -22,10 +27,10 @@ const links = [
 export function Links() {
 	return (
 		<div className="flex flex-col space-y-6">
-			<h1 className="text-2xl font-bold leading-snug">
+			<Heading.h2 className="mb-2">
 				<span className="text-sky-600">*</span> links
-			</h1>
-			<div className="flex items-center space-x-4">
+			</Heading.h2>
+			<div className="flex items-center flex-wrap space-x-4">
 				{links.map((item) => (
 					<a
 						key={item.href}
