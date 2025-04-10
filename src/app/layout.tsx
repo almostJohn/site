@@ -1,3 +1,5 @@
+import * as React from "react";
+import { unstable_ViewTransition as ViewTransition } from "react";
 import type { Metadata } from "next";
 import { geistMono } from "@/util/fonts";
 import { siteConfig } from "@/util/site";
@@ -42,7 +44,7 @@ export default function RootLayout({
 			>
 				<main className="min-h-screen mx-auto max-w-4xl">
 					<SiteHeader />
-					{children}
+					<ViewTransition>{children}</ViewTransition>
 				</main>
 			</body>
 		</html>
