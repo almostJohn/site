@@ -19,7 +19,7 @@ const navLinks = [
 	},
 ];
 
-export function SiteHeader() {
+export function Navbar() {
 	const pathname = usePathname();
 
 	return (
