@@ -1,24 +1,19 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Container } from "@/components/ui/container";
-import { Heading } from "@/components/ui/heading";
-import { Paragraph } from "@/components/ui/paragraph";
 
 export const metadata: Metadata = {
 	title: "blog",
 };
 
-export default function Page() {
+export default async function BlogPage() {
 	return (
-		<Container>
-			<div className="flex flex-col gap-10">
-				<div className="flex flex-col space-y-2">
-					<Heading.h1>
-						<span className="text-sky-500">*</span> blog
-					</Heading.h1>
-					<Paragraph>read my blogs.</Paragraph>
-				</div>
+		<div className="flex flex-col gap-6">
+			<div className="flex flex-col gap-2">
+				<h1 className="text-4xl font-bold tracking-tight">
+					<span className="text-sky-500">*</span> blog
+				</h1>
 			</div>
-		</Container>
+			<p className="text-neutral-300">read my blogs.</p>
+		</div>
 	);
 }

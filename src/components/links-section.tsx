@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Heading } from "../ui/heading";
 
 const links = [
 	{
@@ -24,25 +23,25 @@ const links = [
 	},
 ];
 
-export function Links() {
+export function LinksSection() {
 	return (
-		<div className="flex flex-col space-y-6">
-			<Heading.h2 className="mb-2">
-				<span className="text-sky-600">*</span> links
-			</Heading.h2>
-			<div className="flex items-center flex-wrap space-x-4">
+		<div className="flex flex-col gap-6">
+			<h2 className="text-2xl font-bold tracking-tight mb-2">
+				<span className="text-sky-500">*</span> links
+			</h2>
+			<nav className="flex items-center gap-4 text-sm">
 				{links.map((item) => (
 					<a
 						key={item.href}
 						href={item.href}
 						rel="noreferrer"
 						target="_blank"
-						className="text-neutral-400 transition-colors text-sm font-medium hover:text-sky-500"
+						className="text-neutral-400 transition-colors hover:text-sky-500"
 					>
 						{item.name}
 					</a>
 				))}
-			</div>
+			</nav>
 		</div>
 	);
 }
