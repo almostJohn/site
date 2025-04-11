@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { ProjectCard } from "@/components/project-card";
+import { PageHeader } from "@/components/page-header";
 
 export const metadata: Metadata = {
 	title: "projects",
@@ -43,14 +44,10 @@ const projects = [
 export default function ProjectsPage() {
 	return (
 		<div className="flex flex-col gap-6">
-			<div className="flex flex-col gap-2 pb-6">
-				<h1 className="text-4xl font-bold tracking-tight">
-					<span className="text-sky-500">*</span> projects
-				</h1>
-				<p className="text-neutral-300">
-					here are some of the projects, i&apos;ve worked on.
-				</p>
-			</div>
+			<PageHeader
+				title="projects"
+				description="here are some of the projects, i've worked on."
+			/>
 			<div className="flex flex-col gap-8">
 				{projects.map((item) => (
 					<ProjectCard

@@ -35,7 +35,7 @@ function parseFrontmatter(fileContent: string): FrontmatterParseResult {
 	const metadata: Partial<Metadata> = {};
 
 	frontmatterLines.forEach((line) => {
-		const [key, ...values] = line.split(".");
+		const [key, ...values] = line.split(": ");
 		let value = values.join(": ").trim();
 		value = value.replace(/^['"](.*)['"]$/, "$1");
 		if (key && value) {
