@@ -2,6 +2,7 @@ import * as React from "react";
 import { Item, SectionList } from "@/components/section-list";
 import { Header } from "@/components/header";
 import { LinksSection } from "@/components/links-section";
+import { BlogSection } from "@/components/blog-section";
 
 const projects: Item[] = [
 	{
@@ -30,6 +31,7 @@ export default function Home() {
 				viewAllHref="/projects"
 				viewAllText="all projects"
 			/>
+			<BlogSection />
 			<LinksSection />
 		</>
 	);

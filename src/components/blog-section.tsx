@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { getPosts } from "@/util/blog";
 
 const posts = getPosts()
@@ -20,32 +21,38 @@ export function BlogSection() {
 					<Link
 						key={i}
 						href={`/blog/${post.slug}`}
-						className="flex item-center justify-between w-full"
+						className="flex item-center justify-between w-full group"
 					>
 						<div className="flex flex-col gap-1">
-							<h3 className="text-lg font-semibold leading-snug">
-								{post.metadata.title}
+							<h3 className="transition-colors group-hover:text-sky-500">
+								{post.metadata.title.toLowerCase()}
 							</h3>
-							<p className="text-sm text-neutral-300">
-								{post.metadata.description?.toLowerCase()}
-							</p>
 						</div>
 						<div className="text-right">
-							<span className="text-sm text-neutral-500">
+							<span className="text-sm shrink-0 text-neutral-400">
 								{formatDate(post.metadata.date)}
 							</span>
 						</div>
 					</Link>
 				))}
 			</div>
+			<Link
+				href="/blog"
+				className="inline-flex items-center gap-1 text-sky-500 hover:underline group"
+			>
+				all posts
+				<ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+			</Link>
 		</div>
 	);
 }
 
 function formatDate(dateString: string) {
-	return new Date(dateString).toLocaleDateString("en-US", {
-		year: "numeric",
-		month: "short",
-		day: "numeric",
-	});
+	return new Date(dateString)
+		.toLocaleDateString("en-US", {
+			year: "numeric",
+			month: "short",
+			day: "numeric",
+		})
+		.toLowerCase();
 }

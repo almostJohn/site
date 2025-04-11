@@ -10,18 +10,18 @@ type BlockquoteProps = React.ComponentPropsWithoutRef<"blockquote">;
 
 const components = {
 	h1: (props: HeadingProps) => (
-		<h1 className="text-4xl font-bold tracking-tight" {...props} />
+		<h1 className="text-4xl font-bold tracking-tight pt-4" {...props} />
 	),
 	h2: (props: HeadingProps) => (
-		<h2 className="text-3xl font-semibold tracking-tight" {...props} />
+		<h2 className="text-3xl font-semibold tracking-tight pt-4" {...props} />
 	),
 	h3: (props: HeadingProps) => (
-		<h3 className="text-2xl font-semibold tracking-tight" {...props} />
+		<h3 className="text-2xl font-semibold tracking-tight pt-4" {...props} />
 	),
 	h4: (props: HeadingProps) => (
-		<h4 className="text-xl font-semibold tracking-tight" {...props} />
+		<h4 className="text-xl font-semibold tracking-tight pt-4" {...props} />
 	),
-	p: (props: ParagraphProps) => <p className="pt-4 leading-snug" {...props} />,
+	p: (props: ParagraphProps) => <p className="pt-6 leading-snug" {...props} />,
 	ol: (props: ListProps) => (
 		<ol className="list-decimal pl-5 space-y-2" {...props} />
 	),
@@ -43,7 +43,7 @@ const components = {
 			href={href}
 			rel="noreferrer"
 			target="_blank"
-			className="text-sky-500 hover:underline"
+			className="text-sky-500"
 			{...props}
 		/>
 	),
@@ -66,3 +66,5 @@ declare global {
 export function useMDXComponents(): MDXProvidedComponents {
 	return components;
 }
+
+export const mdxComponents = components;
