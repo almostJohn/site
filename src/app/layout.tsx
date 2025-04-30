@@ -1,9 +1,6 @@
-import * as React from "react";
-import { unstable_ViewTransition as ViewTransition } from "react";
 import type { Metadata } from "next";
-import { geistMono } from "@/util/fonts";
+import { jetBrainsMono } from "@/util/fonts";
 import { siteConfig } from "@/util/site";
-import { Navbar } from "@/components/navbar";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -40,16 +37,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistMono.className} bg-neutral-900 text-white antialiased`}
+				className={`${jetBrainsMono.className} bg-white text-black antialiased min-h-screen text-sm`}
 			>
-				<div className="min-h-screen mx-auto max-w-4xl">
-					<Navbar />
-					<ViewTransition>
-						<main className="w-full py-14 px-4 md:px-6">
-							<div className="flex flex-col gap-10">{children}</div>
-						</main>
-					</ViewTransition>
-				</div>
+				<div className="mx-auto max-w-2xl flex flex-col">{children}</div>
 			</body>
 		</html>
 	);

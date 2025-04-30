@@ -1,38 +1,50 @@
-import * as React from "react";
-import { Item, SectionList } from "@/components/section-list";
 import { Header } from "@/components/header";
-import { LinksSection } from "@/components/links-section";
-import { BlogSection } from "@/components/blog-section";
+import { SubscribeForm } from "@/components/subscribe-form";
 
-const projects: Item[] = [
-	{
-		title: "scaffold.js",
-		description:
-			"scaffold.js is a lightweight layer over discord.js that streamlines bot development with structure, utilities, and smart defaults—letting you focus on features, not boilerplate.",
-		href: "https://github.com/almostJohn/scaffold.js",
-		role: "creator and maintainer",
-	},
-	{
-		title: "tsconfig-site",
-		description:
-			"tsconfig is a simple site for easily copying and pasting TypeScript configuration file. No setup, no fuss—just grab the tsconfig.json you need and get coding.",
-		href: "https://tsconfig-site.vercel.app",
-		role: "creator and maintainer",
-	},
-];
-
-export default function Home() {
+export default function Homepage() {
 	return (
-		<>
-			<Header />
-			<SectionList
-				title="projects"
-				items={projects}
-				viewAllHref="/projects"
-				viewAllText="all projects"
-			/>
-			<BlogSection />
-			<LinksSection />
-		</>
+		<div className="min-h-screen flex items-center justify-center">
+			<div className="container flex flex-col w-full gap-10">
+				<Header />
+				<p className="text-balance text-center">
+					i&apos;m a 24 y/o software developer based in the philippines. i love
+					building things, shuffling cards, and solving problems. i enjoy
+					language design and web development. i mostly use{" "}
+					<a
+						href="https://nextjs.org"
+						rel="noreferrer"
+						target="_blank"
+						className="underline underline-offset-4 font-medium text-blue-700"
+					>
+						next.js
+					</a>
+					, a frontend framework built on top{" "}
+					<a
+						href="https://react.dev"
+						rel="noreferrer"
+						target="_blank"
+						className="underline underline-offset-4 font-medium text-blue-700"
+					>
+						react
+					</a>
+					.
+				</p>
+				<div className="mx-auto flex flex-col space-y-3">
+					<p className="text-center text-balance">
+						i share cool stuff i&apos;m working on, open source projects, and
+						when i&apos;m available for freelance work.
+					</p>
+					<SubscribeForm />
+				</div>
+				<a
+					href="https://github.com/almostJohn?tab=repositories"
+					rel="noreferrer"
+					target="_blank"
+					className="mx-auto max-w-sm text-center font-medium text-blue-700 underline-offset-4 underline"
+				>
+					if you&apos;re looking for my projects, you can find it here.
+				</a>
+			</div>
+		</div>
 	);
 }
