@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { Prisma } from "@prisma/client";
 import { db } from "@/util/db";
 import { Resend } from "resend";
+import { WelcomeEmail } from "@/components/welcome-email";
 
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 
@@ -29,23 +30,8 @@ export default async function handler(
 		await resend.emails.send({
 			from: "almostjohn <onboarding@resend.dev>",
 			to: email,
-			subject: "Thank You for Subscribing!",
-			html: `
-				<div style="font-family: sans-serif; line-height: 1.6;">
-					<h2>You're In!</h2>
-					<p>Thanks for subscribing! 👋</p>
-					<p>
-						I built this feature — and the entire website — from scratch to showcase what I can do as freelance web developer.
-					</p>
-					<p>
-						If you're ever in need of a custom website or web app, feel free to reach out. I'd love to help.
-					</p>
-					<p>
-						Thanks again for checking out <strong>@almosjohn</strong>!
-					</p>
-					<p>- John<br><a href="mailto:garcia.johngale@gmail.com">garcia.johngale@gmail.com</a></p>
-				</div>
-			`,
+			subject: "Thank you for subscribing!",
+			react: WelcomeEmail(),
 		});
 
 		return response.status(200).json({ message: "subscribed!" });

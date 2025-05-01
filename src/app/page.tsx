@@ -36,14 +36,18 @@ export default function Homepage() {
 					</p>
 					<SubscribeForm />
 				</div>
-				<a
-					href="https://github.com/almostJohn?tab=repositories"
-					rel="noreferrer"
-					target="_blank"
-					className="mx-auto max-w-sm text-center font-medium text-blue-700 underline-offset-4 underline"
-				>
-					if you&apos;re looking for my projects, you can find it here.
-				</a>
+				<p className="mx-auto max-w-sm text-center">
+					if you&apos;re looking for my projects, you can find it{" "}
+					<a
+						href="https://github.com/almostJohn?tab=repositories"
+						rel="noreferrer"
+						target="_blank"
+						className="font-medium underline-offset-4 underline text-blue-700"
+					>
+						here
+					</a>
+					.
+				</p>
 			</div>
 		</div>
 	);
