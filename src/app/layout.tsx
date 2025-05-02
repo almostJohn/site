@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 	icons: {
 		other: [
 			{
-				url: "/favicon.svg",
+				url: "/favicon-32x32.jpg",
 				sizes: "32x32",
-				type: "image/svg",
+				type: "image/jpeg",
 			},
 		],
 	},
