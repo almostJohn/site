@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Prisma } from "@prisma/client";
-import { db } from "@/util/db";
 import { Resend } from "resend";
+import { db } from "@/db/client";
+import { subscribers } from "@/db/schema";
 import { WelcomeEmail } from "@/components/welcome-email";
 
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
@@ -21,10 +21,8 @@ export default async function handler(
 	}
 
 	try {
-		await db.subscriber.create({
-			data: {
-				email,
-			},
+		await db.insert(subscribers).values({
+			email,
 		});
 
 		await resend.emails.send({
@@ -36,8 +34,8 @@ export default async function handler(
 
 		return response.status(200).json({ message: "subscribed!" });
 	} catch (error_) {
-		if (error_ instanceof Prisma.PrismaClientKnownRequestError) {
-			if (error_.code === "P2002") {
+		if (error_ instanceof Error) {
+			if (error_) {
 				return response
 					.status(409)
 					.send({ error: "email already subscribed!" });
