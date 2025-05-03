@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
 	return (
-		<div className="mx-auto max-w-3xl flex items-center gap-2 font-medium">
+		<div className="flex items-center justify-center gap-2 font-medium">
 			<Link href="/" className="underline-offset-4 underline text-blue-700">
 				almostjohn
 			</Link>

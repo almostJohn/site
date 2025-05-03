@@ -37,9 +37,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${jetBrainsMono.className} bg-white text-black antialiased min-h-screen text-sm`}
+				className={`${jetBrainsMono.className} text-[#090909] bg-[#fafafa] antialiased min-h-screen text-sm`}
 			>
-				<div className="mx-auto max-w-2xl flex flex-col">{children}</div>
+				<div className="max-w-2xl container flex flex-col">{children}</div>
 			</body>
 		</html>
 	);

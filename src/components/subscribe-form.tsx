@@ -37,14 +37,14 @@ export function SubscribeForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="mx-auto flex flex-col gap-2">
+		<form onSubmit={handleSubmit} className="flex flex-col gap-2">
 			<div className="flex items-center space-x-2">
 				<input
-					className="p-2 h-9 bg-transparent border border-neutral-200 text-sm transition-colors hover:border-blue-700 focus:border-blue-700 placeholder:text-neutral-500 focus:outline-none focus:ring-0"
+					className="p-2 h-9 w-full bg-transparent border border-neutral-200 text-sm transition-colors hover:border-blue-700 focus:border-blue-700 placeholder:text-neutral-500 focus:outline-none focus:ring-0"
 					type="email"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
-					placeholder="email@example.com"
+					placeholder="name@example.com"
 					required
 				/>
 				<button
