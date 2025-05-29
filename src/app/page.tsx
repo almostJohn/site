@@ -7,11 +7,23 @@ import { Links } from "@/components/links";
 const projects = [
 	{
 		title: "tsconfig-site",
-		href: "https://tsconfig-site.vercel.app",
+		href: "https://github.com/almostJohn/tsconfig-site",
 	},
 	{
-		title: "simplynote-site",
-		href: "https://simplynote-site.vercel.app",
+		title: "syntra-site",
+		href: "https://github.com/almostJohn/syntra-site",
+	},
+	{
+		title: "scaffold.js",
+		href: "https://github.com/almostJohn/scaffold.js",
+	},
+	{
+		title: "image-upload-api",
+		href: "https://github.com/almostJohn/image-upload-api",
+	},
+	{
+		title: "pochita-discord-bot",
+		href: "https://github.com/almostJohn/pochita",
 	},
 ];
 
@@ -36,6 +48,10 @@ const links = [
 	{
 		title: "github",
 		href: "https://github.com/almostJohn",
+	},
+	{
+		title: "linkedin",
+		href: "https://www.linkedin.com/in/almostjohn/",
 	},
 	{
 		title: "x.com",
