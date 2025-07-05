@@ -1,13 +1,13 @@
-import { Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { Inter, Ubuntu_Sans } from "next/font/google";
 
-export const geistMono = Geist_Mono({
+export const inter = Inter({
 	subsets: ["latin"],
 	display: "swap",
-	variable: "--font-geist-mono",
+	variable: "--font-inter",
 });
 
-export const jetBrainsMono = JetBrains_Mono({
+export const ubuntuSans = Ubuntu_Sans({
 	subsets: ["latin"],
 	display: "swap",
-	variable: "--font-jetbrains-mono",
+	variable: "--font-ubuntu-sans",
 });
