@@ -1,10 +1,15 @@
-import type { Metadata } from "next";
-import { jetBrainsMono } from "@/util/fonts";
-import { siteConfig } from "@/util/site";
 import "@/styles/globals.css";
+import type { Metadata } from "next";
+import type { PropsWithChildren } from "react";
+import { ubuntuSans } from "@/util/fonts";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/util/cn";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
 	title: siteConfig.title,
+	description: siteConfig.description,
 	icons: {
 		other: [
 			{
@@ -22,24 +27,30 @@ export const metadata: Metadata = {
 		siteName: siteConfig.name,
 		type: "website",
 		title: siteConfig.title,
+		description: siteConfig.description,
 	},
 	twitter: {
 		card: "summary_large_image",
+		title: siteConfig.title,
+		description: siteConfig.description,
 		creator: "@almostJohn",
 	},
 };
 
-export default function RootLayout({
-	children,
-}: {
-	readonly children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${jetBrainsMono.className} text-[#090909] bg-[#fafafa] antialiased min-h-screen text-sm`}
+				className={cn(
+					"bg-neutral-100 text-neutral-800 antialiased",
+					ubuntuSans.className,
+				)}
 			>
-				<div className="max-w-2xl container flex flex-col">{children}</div>
+				<main className="min-h-screen">
+					<Navbar />
+					{children}
+					<Footer />
+				</main>
 			</body>
 		</html>
 	);
