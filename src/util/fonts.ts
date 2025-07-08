@@ -1,13 +1,7 @@
-import { Inter, Ubuntu_Sans } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 
-export const inter = Inter({
+export const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
 	display: "swap",
-	variable: "--font-inter",
-});
-
-export const ubuntuSans = Ubuntu_Sans({
-	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-ubuntu-sans",
+	variable: "--font-jetbrains-mono",
 });
