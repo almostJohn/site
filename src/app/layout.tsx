@@ -1,11 +1,9 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
-import { ubuntuSans } from "@/util/fonts";
+import { jetBrainsMono } from "@/util/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/util/cn";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
 	title: siteConfig.title,
@@ -42,14 +40,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
 		<html lang="en" suppressHydrationWarning>
 			<body
 				className={cn(
-					"bg-neutral-100 text-neutral-800 antialiased",
-					ubuntuSans.className,
+					"bg-neutral-100 text-neutral-800 text-sm antialiased",
+					jetBrainsMono.className,
 				)}
 			>
-				<main className="min-h-screen">
-					<Navbar />
+				<main className="min-h-screen mx-auto max-w-2xl px-6 md:px-0 flex items-center justify-center">
 					{children}
-					<Footer />
 				</main>
 			</body>
 		</html>
