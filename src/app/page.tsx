@@ -65,7 +65,7 @@ export default function HomePage() {
 	return (
 		<div className="flex flex-col gap-5">
 			<div className="flex flex-col space-y-4">
-				<h3 className="font-bold">almostjohn — hey, I&apos;m John 👋</h3>
+				<h3 className="font-bold">Hey, I&apos;m John 👋</h3>
 				<p className="text-balance">
 					I&apos;m a 24 year old <strong>software developer</strong> based in
 					the Philippines. I love <strong>building things</strong>,{" "}
