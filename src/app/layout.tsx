@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 	icons: {
 		other: [
 			{
-				url: "/favicon-32x32.jpg",
+				url: "/favicon.png",
 				sizes: "32x32",
-				type: "image/jpeg",
+				type: "image/png",
 			},
 		],
 	},
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: siteConfig.title,
 		description: siteConfig.description,
-		creator: "@almostJohn",
+		creator: siteConfig.creator,
 	},
 };
 
@@ -40,11 +40,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
 		<html lang="en" suppressHydrationWarning>
 			<body
 				className={cn(
-					"bg-neutral-100 text-neutral-800 text-sm antialiased",
+					"bg-neutral-900 text-neutral-50 antialiased",
 					jetBrainsMono.className,
 				)}
 			>
-				<main className="min-h-screen mx-auto max-w-2xl px-6 md:px-0 flex items-center justify-center">
+				<main className="min-h-screen mx-auto max-w-3xl px-6 pt-6 pb-16 md:px-0">
 					{children}
 				</main>
 			</body>
