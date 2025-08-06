@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Projects } from "@/components/projects";
-import { CV } from "@/components/cv";
-import { Socials } from "@/components/socials";
+import { MainNav } from "@/components/main-nav";
+import { MobileNav } from "@/components/moblie-nav";
+import { cn } from "@/util/cn";
+import { domine } from "@/util/fonts";
 
 const projects = [
 	{
@@ -11,6 +11,10 @@ const projects = [
 	{
 		title: "tsconfig-site",
 		href: "https://tsconfig-site.vercel.app",
+	},
+	{
+		title: "demo-merch-site",
+		href: "https://github.com/almostJohn/demo-merch-site",
 	},
 	{
 		title: "scaffold.js",
@@ -26,85 +30,77 @@ const projects = [
 	},
 ];
 
-const socials = [
-	{
-		title: "email",
-		href: "mailto:garcia.johngale@gmail.com",
-	},
-	{
-		title: "buy me a coffee",
-		href: "https://ko-fi.com/almostjohn",
-	},
-	{
-		title: "github",
-		href: "https://github.com/almostJohn",
-	},
-	{
-		title: "discord",
-		href: "https://discord.com/users/996354867708841984",
-	},
-	{
-		title: "x.com",
-		href: "https://x.com/almostJohn1",
-	},
-	{
-		title: "instagram",
-		href: "https://instagram.com/almostjohn1",
-	},
-	{
-		title: "facebook",
-		href: "https://facebook.com/alsojohn01",
-	},
-	{
-		title: "linkedin",
-		href: "https://www.linkedin.com/in/almostjohn",
-	},
-];
-
 export default function HomePage() {
 	return (
-		<div className="flex flex-col gap-5">
-			<div className="flex flex-col space-y-4">
-				<h3 className="font-bold">Hey, I&apos;m John 👋</h3>
-				<p className="text-balance">
-					I&apos;m a 24 year old <strong>software developer</strong> based in
-					the Philippines. I love <strong>building things</strong>,{" "}
-					<strong>shuffling cards</strong>, and{" "}
-					<strong>solving problems</strong>. I love{" "}
-					<strong>language design</strong>, and <strong>web development</strong>
-					. I mostly use{" "}
-					<Link
+		<div className="flex flex-col gap-6 mt-12 md:flex-row md:justify-between">
+			<div className="flex flex-col gap-4">
+				<h1
+					className={cn("text-3xl font-medium md:text-4xl", domine.className)}
+				>
+					almostjohn
+				</h1>
+				<p className="text-sm w-full sm:max-w-lg text-neutral-400 mt-3">
+					i&apos;m 24 y/o software developer based in the philippines. i love
+					building things, shuffling cards, and solving problems. i love
+					language design, and web development. i mostly use{" "}
+					<a
 						href="https://nextjs.org"
 						rel="noreferrer"
 						target="_blank"
-						className="font-bold underline underline-offset-2 decoration-neutral-400 transition-colors hover:decoration-neutral-800"
+						className="text-sm font-medium text-neutral-50 underline decoration-neutral-500 transition-colors hover:decoration-neutral-50"
 					>
-						Next.js
-					</Link>
+						next.js
+					</a>
 					, a frontend framework built with{" "}
-					<Link
+					<a
 						href="https://react.dev"
 						rel="noreferrer"
 						target="_blank"
-						className="font-bold underline underline-offset-2 decoration-neutral-400 transition-colors hover:decoration-neutral-800"
+						className="text-sm font-medium text-neutral-50 underline decoration-neutral-500 transition-colors hover:decoration-neutral-50"
 					>
-						React
-					</Link>
+						react
+					</a>
 					.
 				</p>
+				<div className="flex flex-col gap-3 mt-6">
+					<h2 className={cn("text-2xl font-medium", domine.className)}>
+						projects
+					</h2>
+					<ul className="space-y-2 mt-2 list-disc list-inside">
+						{projects.map((item, index) => (
+							<li key={index} className="list-item">
+								<a
+									href={item.href}
+									rel="noreferrer"
+									target="_blank"
+									className="text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
+								>
+									{item.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div className="flex flex-col gap-3 mt-6">
+					<h2 className={cn("text-2xl font-medium", domine.className)}>
+						looking for my cv?
+					</h2>
+					<ul className="space-y-2 mt-2 list-disc list-inside">
+						<li className="list-item">
+							<a
+								href="https://drive.google.com/file/d/1queDVnW3_HCq1m67b4v50_xKhThbpkHO/view?usp=drive_link"
+								rel="noreferrer"
+								target="_blank"
+								className="text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
+							>
+								curriculum vitae (cv)
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div className="flex flex-col space-y-4">
-				<h3 className="font-bold">projects</h3>
-				<Projects projects={projects} />
-			</div>
-			<div className="flex flex-col space-y-4">
-				<h3 className="font-bold">looking for my CV?</h3>
-				<CV />
-			</div>
-			<div className="flex flex-col space-y-4">
-				<h3 className="font-bold">social media</h3>
-				<Socials socials={socials} />
-			</div>
+			<MainNav />
+			<MobileNav />
 		</div>
 	);
 }
