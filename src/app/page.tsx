@@ -30,6 +30,9 @@ const projects = [
 	},
 ];
 
+const redirectToCV =
+	"https://drive.google.com/file/d/1ODdBdnlADnFYdaKk08YedvMo0GBADOtq/view?usp=drive_link";
+
 export default function HomePage() {
 	return (
 		<div className="flex flex-col gap-6 mt-12 md:flex-row md:justify-between">
@@ -88,7 +91,7 @@ export default function HomePage() {
 					<ul className="space-y-2 mt-2 list-disc list-inside">
 						<li className="list-item">
 							<a
-								href="https://drive.google.com/file/d/1queDVnW3_HCq1m67b4v50_xKhThbpkHO/view?usp=drive_link"
+								href={redirectToCV}
 								rel="noreferrer"
 								target="_blank"
 								className="text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
