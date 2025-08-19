@@ -13,6 +13,10 @@ const projects = [
 		href: "https://tsconfig-site.vercel.app",
 	},
 	{
+		title: "thoughtsthing",
+		href: "https://github.com/almostJohn/thoughtsthing",
+	},
+	{
 		title: "demo-merch-site",
 		href: "https://github.com/almostJohn/demo-merch-site",
 	},
