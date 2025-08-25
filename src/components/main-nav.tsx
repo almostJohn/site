@@ -16,7 +16,7 @@ export function MainNav() {
 					"text-sm font-medium transition-colors duration-200",
 					pathname === "/"
 						? "text-neutral-50"
-						: "text-neutral-500 hover:text-neutral-50",
+						: "text-neutral-400 hover:text-neutral-50",
 				)}
 			>
 				about
@@ -25,7 +25,7 @@ export function MainNav() {
 				href="mailto:garcia.johngale@gmail.com"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				email <ArrowUpRight className="size-4 shrink-0" />
 			</a>
@@ -33,7 +33,7 @@ export function MainNav() {
 				href="https://ko-fi.com/almostjohn"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				kofi <ArrowUpRight className="size-4 shrink-0" />
 			</a>
@@ -41,7 +41,7 @@ export function MainNav() {
 				href="https://github.com/almostJohn"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				github <ArrowUpRight className="size-4 shrink-0" />
 			</a>
@@ -49,7 +49,7 @@ export function MainNav() {
 				href="https://discord.com/users/996354867708841984"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				discord <ArrowUpRight className="size-4 shrink-0" />
 			</a>
@@ -57,7 +57,7 @@ export function MainNav() {
 				href="https://x.com/almostJohn1"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				twitter <ArrowUpRight className="size-4 shrink-0" />
 			</a>
@@ -65,7 +65,7 @@ export function MainNav() {
 				href="https://instagram.com/almostjohn1"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				instagram <ArrowUpRight className="size-4 shrink-0" />
 			</a>
@@ -73,7 +73,7 @@ export function MainNav() {
 				href="https://facebook.com/alsojohn01"
 				rel="noreferrer"
 				target="_blank"
-				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-50"
+				className="inline-flex gap-1 items-center text-sm font-medium text-neutral-400 transition-colors hover:text-neutral-50"
 			>
 				facebook <ArrowUpRight className="size-4 shrink-0" />
 			</a>
