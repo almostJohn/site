@@ -9,7 +9,7 @@ export function MobileNav() {
 	const pathname = usePathname();
 
 	return (
-		<div className="flex flex-col mt-6 gap-3 items-start ml-2 md:hidden">
+		<div className="flex flex-col mt-8 gap-3 items-start md:hidden">
 			<Link
 				href="/"
 				className={cn(

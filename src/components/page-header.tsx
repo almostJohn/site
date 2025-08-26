@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/util/cn";
-import { domine } from "@/util/fonts";
+import { notoSerif } from "@/util/fonts";
 
 export function PageHeader({
 	className,
@@ -22,7 +22,7 @@ export function PageHeaderHeading({
 		<h1
 			className={cn(
 				"font-semibold tracking-tight text-3xl md:text-4xl",
-				domine.className,
+				notoSerif.className,
 			)}
 			{...props}
 		/>
@@ -35,7 +35,10 @@ export function PageHeaderDescription({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
 	return (
 		<p
-			className={cn("text-sm text-pretty w-full sm:max-w-lg mt-4", className)}
+			className={cn(
+				"text-sm/relaxed text-pretty w-full sm:max-w-xl mt-4",
+				className,
+			)}
 			{...props}
 		/>
 	);

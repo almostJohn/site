@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
-import { geistMono } from "@/util/fonts";
+import { ubuntu } from "@/util/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/util/cn";
 
@@ -40,11 +40,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
 		<html lang="en" suppressHydrationWarning>
 			<body
 				className={cn(
-					"bg-neutral-800 text-neutral-50 antialiased",
-					geistMono.className,
+					"bg-neutral-900 text-neutral-100 antialiased",
+					ubuntu.className,
 				)}
 			>
-				<main className="min-h-screen mx-auto max-w-3xl px-8 pt-8 pb-16 md:px-0">
+				<main className="min-h-screen mx-auto max-w-3xl px-8 pt-8 pb-14 md:px-0">
 					{children}
 				</main>
 			</body>
