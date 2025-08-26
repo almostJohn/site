@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/util/cn";
-import { domine } from "@/util/fonts";
+import { notoSerif } from "@/util/fonts";
 
 type SectionListProps = React.HTMLAttributes<HTMLDivElement> & {
 	title: string;
@@ -17,7 +17,7 @@ export function SectionList({
 			<h2
 				className={cn(
 					"text-xl font-semibold tracking-tight sm:text-2xl/8",
-					domine.className,
+					notoSerif.className,
 				)}
 			>
 				{title}

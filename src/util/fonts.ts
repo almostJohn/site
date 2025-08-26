@@ -1,19 +1,14 @@
-import { JetBrains_Mono, Domine, Geist_Mono } from "next/font/google";
+import { Ubuntu, Noto_Serif } from "next/font/google";
 
-export const jetBrainsMono = JetBrains_Mono({
-	subsets: ["latin"],
+export const ubuntu = Ubuntu({
 	display: "swap",
-	variable: "--font-jetbrains-mono",
+	subsets: ["latin"],
+	variable: "--font-ubuntu",
+	weight: ["300", "400", "500", "700"],
 });
 
-export const domine = Domine({
-	subsets: ["latin"],
+export const notoSerif = Noto_Serif({
 	display: "swap",
-	variable: "--font-domine",
-});
-
-export const geistMono = Geist_Mono({
 	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-geist-mono",
+	variable: "--font-noto-serif",
 });

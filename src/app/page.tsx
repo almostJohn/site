@@ -1,20 +1,20 @@
-import { MainNav } from "@/components/main-nav";
-import { MobileNav } from "@/components/mobile-nav";
 import {
 	PageHeader,
 	PageHeaderHeading,
 	PageHeaderDescription,
 } from "@/components/page-header";
 import { SectionList } from "@/components/section-list";
+import { MainNav } from "@/components/main-nav";
+import { MobileNav } from "@/components/mobile-nav";
 
 const projects = [
 	{
-		title: "syntra-site",
-		href: "https://syntra-site.vercel.app",
-	},
-	{
 		title: "tsconfig-site",
 		href: "https://tsconfig-site.vercel.app",
+	},
+	{
+		title: "syntra-site",
+		href: "https://syntra-site.vercel.app",
 	},
 	{
 		title: "thoughtsthing-site",
@@ -29,14 +29,14 @@ const projects = [
 		href: "https://github.com/almostJohn/scaffold.js",
 	},
 	{
-		title: "more...",
+		title: "more? check out repositories",
 		href: "https://github.com/almostJohn?tab=repositories",
 	},
 ];
 
 export default function HomePage() {
 	return (
-		<div className="flex flex-col gap-6 mt-12 md:flex-row md:justify-between">
+		<div className="flex flex-col gap-6 mt-14 md:flex-row md:justify-between">
 			<PageHeader>
 				<PageHeaderHeading>almostjohn</PageHeaderHeading>
 				<PageHeaderDescription>
@@ -47,7 +47,7 @@ export default function HomePage() {
 						href="https://nextjs.org"
 						rel="noreferrer"
 						target="_blank"
-						className="text-sm font-medium text-neutral-50 underline decoration-neutral-500 transition-colors hover:decoration-neutral-100"
+						className="underline underline-offset-2 decoration-neutral-500 transition-colors hover:decoration-neutral-100"
 					>
 						next.js
 					</a>
@@ -56,21 +56,21 @@ export default function HomePage() {
 						href="https://react.dev"
 						rel="noreferrer"
 						target="_blank"
-						className="text-sm font-medium text-neutral-50 underline decoration-neutral-500 transition-colors hover:decoration-neutral-100"
+						className="underline underline-offset-2 decoration-neutral-500 transition-colors hover:decoration-neutral-100"
 					>
 						react
 					</a>
 					.
 				</PageHeaderDescription>
 				<SectionList title="projects">
-					<ul className="mt-2.5 list-disc list-inside space-y-2">
+					<ul className="mt-2 space-y-2 list-disc list-inside">
 						{projects.map((item, i) => (
 							<li key={i} className="list-item">
 								<a
 									href={item.href}
 									rel="noreferrer"
 									target="_blank"
-									className="text-sm font-medium underline decoration-neutral-500 transition-colors duration-200 hover:decoration-neutral-100"
+									className="text-neutral-400 text-sm transition-colors duration-200 hover:text-neutral-100"
 								>
 									{item.title}
 								</a>
@@ -79,15 +79,15 @@ export default function HomePage() {
 					</ul>
 				</SectionList>
 				<SectionList title="looking for my cv?">
-					<ul className="mt-2.5 list-disc list-inside space-y-2">
+					<ul className="mt-2 list-disc list-inside">
 						<li className="list-item">
 							<a
 								href="/cv"
 								rel="noreferrer"
 								target="_blank"
-								className="text-sm font-medium underline decoration-neutral-500 transition-colors duration-200 hover:decoration-neutral-100"
+								className="text-neutral-400 text-sm transition-colors duration-200 hover:text-neutral-100"
 							>
-								curriculum vitae (cv)
+								curriculum vitae
 							</a>
 						</li>
 					</ul>
