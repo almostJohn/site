@@ -1,14 +1,7 @@
-import { Ubuntu, Noto_Serif } from "next/font/google";
+import { Caveat } from "next/font/google";
 
-export const ubuntu = Ubuntu({
+export const caveat = Caveat({
 	display: "swap",
 	subsets: ["latin"],
-	variable: "--font-ubuntu",
-	weight: ["300", "400", "500", "700"],
-});
-
-export const notoSerif = Noto_Serif({
-	display: "swap",
-	subsets: ["latin"],
-	variable: "--font-noto-serif",
+	variable: "--font-caveat",
 });
