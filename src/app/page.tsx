@@ -100,7 +100,7 @@ export default function HomePage() {
 						</a>
 						, a startup company that aims to build a web app for content
 						creators in the philippines to create and grow communities with
-						their fans. i joined the development team and helped the move the
+						their fans. i joined the development team and helped move the
 						project forward.
 					</p>
 				</div>
