@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
-import { caveat } from "@/util/fonts";
+import { jetBrainsMono } from "@/util/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/util/cn";
 
@@ -40,13 +40,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
 		<html lang="en" suppressHydrationWarning>
 			<body
 				className={cn(
-					"bg-neutral-800 text-neutral-50 antialiased",
-					caveat.className,
+					"bg-neutral-50 text-neutral-950 text-sm antialiased min-h-svh",
+					jetBrainsMono.className,
 				)}
 			>
-				<main className="min-h-screen mx-auto max-w-2xl pt-18 pb-12 px-6 sm:px-4 md:px-8 md:pt-32">
-					{children}
-				</main>
+				<main className="flex flex-col">{children}</main>
 			</body>
 		</html>
 	);
