@@ -1,7 +1,7 @@
-import { Caveat } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 
-export const caveat = Caveat({
+export const jetBrainsMono = JetBrains_Mono({
 	display: "swap",
 	subsets: ["latin"],
-	variable: "--font-caveat",
+	variable: "--font-mono",
 });
